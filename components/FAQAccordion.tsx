@@ -19,9 +19,9 @@ const faqs: FAQItem[] = [
       "Un reumatólogo trata enfermedades que afectan articulaciones, huesos, tendones, ligamentos y músculos, incluyendo artritis reumatoide, lupus eritematoso sistémico, osteoporosis, fibromialgia, espondilitis anquilosante, artritis psoriásica, síndrome de Sjögren, vasculitis y artrosis. También maneja condiciones como hernias de disco, gonartrosis, coxartrosis y dolor de hombro de origen articular.",
   },
   {
-    question: "¿El Dr. Hernán Vázquez da consulta a domicilio o por videollamada?",
+    question: "¿El Dr. Hernán Vázquez da consulta por videollamada?",
     answer:
-      "Sí, el Dr. Vázquez ofrece consulta presencial, consulta por videollamada y consulta a domicilio en Monterrey y San Pedro Garza García. Para agendar cualquiera de estas modalidades, puede contactar directamente por WhatsApp al 81 8317 8342 o llamar al consultorio.",
+      "Sí, el Dr. Vázquez ofrece consulta presencial y consulta por videollamada. Para agendar cualquiera de estas modalidades, puede contactar directamente por WhatsApp al 81 8317 8342 o llamar al consultorio.",
   },
   {
     question: "¿Dónde tiene consultorio el Dr. Hernán Vázquez en Monterrey?",
@@ -51,7 +51,7 @@ const faqs: FAQItem[] = [
 ]
 
 export default function FAQAccordion() {
-  const [openItems, setOpenItems] = useState<number[]>([0, 1, 2])
+  const [openItems, setOpenItems] = useState<number[]>([])
 
   const toggle = (index: number) => {
     setOpenItems((prev) =>
@@ -80,10 +80,10 @@ export default function FAQAccordion() {
                 {faq.question}
               </span>
               <span
-                className={`flex-shrink-0 w-6 h-6 rounded-full border border-gray-200 flex items-center justify-center transition-all duration-200 ${
+                className={`faq-icon flex-shrink-0 w-6 h-6 rounded-full border flex items-center justify-center ${
                   isOpen
-                    ? "bg-primary border-primary text-white rotate-45"
-                    : "text-gray-400 group-hover:border-primary group-hover:text-primary"
+                    ? "open bg-primary border-primary text-white"
+                    : "border-gray-200 text-gray-400 group-hover:border-primary group-hover:text-primary"
                 }`}
                 aria-hidden="true"
               >

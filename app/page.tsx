@@ -1,5 +1,6 @@
 import Image from "next/image"
 import FAQAccordion from "@/components/FAQAccordion"
+import TestimonialCarousel from "@/components/TestimonialCarousel"
 import { JsonLd } from "@/components/JsonLd"
 import { faqPageSchema, serviceSchemas } from "@/lib/schemas"
 
@@ -19,30 +20,6 @@ const CONDITIONS = [
   "Dolor de hombro",
   "Gota",
   "Hernias de disco",
-]
-
-const TESTIMONIALS = [
-  {
-    quote:
-      "Llevaba dos años con dolor en las manos sin diagnóstico claro. El Dr. Vázquez me explicó exactamente qué tenía, por qué me dolía y qué iba a hacer. Salí de la consulta con más claridad de la que había tenido en dos años.",
-    name: "María G.",
-    detail: "Monterrey, N.L.",
-    condition: "Artritis reumatoide",
-  },
-  {
-    quote:
-      "Lo que más me sorprendió fue que dedicó el tiempo necesario para explicarme todo. Nada de salir corriendo en 10 minutos. Tres meses después de iniciar el tratamiento, el dolor mejoró considerablemente.",
-    name: "Roberto S.",
-    detail: "San Pedro Garza García",
-    condition: "Dolor articular crónico",
-  },
-  {
-    quote:
-      "Tenía miedo de que mi diagnóstico de lupus significara una vida limitada. El Dr. Vázquez me mostró que con el tratamiento correcto y seguimiento continuo, se puede vivir muy bien. Sigo en control y cada vez mejor.",
-    name: "Carmen L.",
-    detail: "Monterrey, N.L.",
-    condition: "Lupus eritematoso sistémico",
-  },
 ]
 
 const CREDENTIALS = [
@@ -117,8 +94,8 @@ export default function HomePage() {
             <p className="hero-subtext text-blue-100/90 text-base md:text-lg leading-relaxed mb-10 max-w-xl">
               El Dr. Hernán Vázquez es médico reumatólogo certificado con más de 10 años de
               experiencia en el diagnóstico y tratamiento de enfermedades del sistema
-              musculoesquelético. Atiende en el Centro Médico Muguerza Hospital Sur,
-              por videollamada y a domicilio.
+              musculoesquelético. Atiende en el Centro Médico Muguerza Hospital Sur
+              y ofrece consulta por videollamada a nivel nacional.
             </p>
 
             <div className="hero-cta flex flex-col sm:flex-row gap-4">
@@ -145,7 +122,7 @@ export default function HomePage() {
               </a>
             </div>
 
-            <div className="flex flex-wrap gap-x-6 gap-y-2 mt-10">
+            <div className="hero-trust flex flex-wrap gap-x-6 gap-y-2 mt-10">
               {["+10 años de experiencia", "Certificado CMR", "Muguerza Hospital Sur"].map(
                 (item) => (
                   <span key={item} className="flex items-center gap-2 text-blue-200 text-sm">
@@ -174,7 +151,7 @@ export default function HomePage() {
               { value: "+10 años", label: "de experiencia clínica en reumatología" },
               { value: "Único", label: "reumatólogo en Muguerza Hospital Sur" },
               { value: "CMR", label: "Certificado por el Colegio Mexicano de Reumatología" },
-              { value: "3 modalidades", label: "Presencial · Videollamada · Domicilio" },
+              { value: "UNAM", label: "Especialidades en Medicina Interna y Reumatología" },
             ].map((stat) => (
               <div key={stat.value} className="text-center lg:px-8">
                 <p className="text-2xl font-bold text-white mb-1">{stat.value}</p>
@@ -208,13 +185,13 @@ export default function HomePage() {
 
           <div className="card-grid grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {/* Card 1 — Artritis */}
-            <article className="card-item group rounded-2xl overflow-hidden bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+            <article className="card-item service-card rounded-2xl overflow-hidden bg-white border border-gray-100 shadow-sm">
               <div className="aspect-[4/3] relative overflow-hidden">
                 <Image
                   src="/images/service-artritis.jpg"
                   alt="Tratamiento de artritis y dolor articular — especialista en Monterrey"
                   fill
-                  className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  className="card-image object-cover object-center"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
@@ -244,13 +221,13 @@ export default function HomePage() {
             </article>
 
             {/* Card 2 — Lupus & Autoinmunes */}
-            <article className="card-item group rounded-2xl overflow-hidden bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+            <article className="card-item service-card rounded-2xl overflow-hidden bg-white border border-gray-100 shadow-sm">
               <div className="aspect-[4/3] relative overflow-hidden">
                 <Image
                   src="/images/service-consulta.jpg"
                   alt="Consulta médica reumatológica personalizada en Monterrey"
                   fill
-                  className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  className="card-image object-cover object-center"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
@@ -306,7 +283,7 @@ export default function HomePage() {
           </div>
 
           {/* Modalidades */}
-          <div className="grid grid-cols-3 gap-4 border-t border-gray-100 pt-10" data-reveal>
+          <div className="grid grid-cols-2 gap-6 border-t border-gray-100 pt-10 max-w-xl mx-auto" data-reveal>
             {[
               {
                 icon: (
@@ -327,16 +304,6 @@ export default function HomePage() {
                 ),
                 label: "Videollamada",
                 detail: "Cobertura nacional. Misma calidad de atención",
-              },
-              {
-                icon: (
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <circle cx="12" cy="12" r="10"/>
-                    <path d="M12 8v4l3 3"/>
-                  </svg>
-                ),
-                label: "Consulta a domicilio",
-                detail: "Monterrey y San Pedro Garza García",
               },
             ].map((mode) => (
               <div key={mode.label} className="text-center px-2">
@@ -393,16 +360,16 @@ export default function HomePage() {
                 cirujano partero de la UANL, realizó sus especialidades en Medicina Interna y
                 Reumatología en la UNAM. Atiende en el Centro Médico Muguerza Hospital Sur,
                 donde es el único reumatólogo disponible, y ofrece también consulta por
-                videollamada y a domicilio en Monterrey y San Pedro Garza García.
+                videollamada para pacientes a nivel nacional.
               </p>
 
               <div className="mb-8">
                 <p className="text-xs font-semibold tracking-widest uppercase text-blue-300/70 mb-4">
                   Formación y certificaciones
                 </p>
-                <ul className="space-y-3">
+                <ul className="cred-list space-y-3">
                   {CREDENTIALS.map((cred) => (
-                    <li key={cred.label} className="flex gap-3 items-start">
+                    <li key={cred.label} className="cred-item flex gap-3 items-start">
                       <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
                       <span>
                         <span className="text-white font-medium text-sm">{cred.label}</span>
@@ -457,8 +424,8 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-navy/85" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-5 lg:px-8">
-          <div className="text-center mb-14" data-reveal>
+        <div className="relative z-10 max-w-3xl mx-auto px-5 lg:px-8">
+          <div className="text-center mb-12" data-reveal>
             <p className="section-label mb-4" style={{ color: "#93c5fd" }}>
               Pacientes
             </p>
@@ -467,33 +434,8 @@ export default function HomePage() {
             </h2>
           </div>
 
-          <div className="card-grid grid md:grid-cols-3 gap-6">
-            {TESTIMONIALS.map((t) => (
-              <div
-                key={t.name}
-                className="card-item bg-white/10 backdrop-blur-sm border border-white/10 rounded-2xl p-7 flex flex-col"
-              >
-                <div className="flex gap-1 mb-5" aria-label="Calificación: 5 estrellas">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <svg key={i} width="14" height="14" viewBox="0 0 24 24" fill="#FBBF24" aria-hidden="true">
-                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                    </svg>
-                  ))}
-                </div>
-
-                <blockquote className="text-white/85 text-sm leading-relaxed flex-1 mb-6 italic">
-                  &ldquo;{t.quote}&rdquo;
-                </blockquote>
-
-                <footer>
-                  <p className="text-white font-semibold text-sm">{t.name}</p>
-                  <p className="text-blue-300 text-xs mt-0.5">{t.detail}</p>
-                  <span className="inline-block mt-2 text-xs bg-white/10 text-blue-200 px-2.5 py-1 rounded-full">
-                    {t.condition}
-                  </span>
-                </footer>
-              </div>
-            ))}
+          <div data-reveal>
+            <TestimonialCarousel />
           </div>
         </div>
       </section>
@@ -561,7 +503,7 @@ export default function HomePage() {
               <p className="text-muted leading-relaxed mb-8">
                 El Dr. Hernán Vázquez atiende en el Centro Médico Muguerza Hospital Sur,
                 donde es el único reumatólogo disponible en esa unidad. También ofrece
-                consulta por videollamada y a domicilio para mayor comodidad.
+                consulta por videollamada para pacientes en todo el país.
               </p>
 
               <div className="space-y-5">
@@ -727,8 +669,8 @@ export default function HomePage() {
           </div>
 
           <p className="mt-8 text-blue-200/60 text-xs">
-            Respondemos en horario de consulta · Lunes a sábado · Consulta presencial,
-            videollamada y domicilio
+            Respondemos en horario de consulta · Lunes a sábado · Consulta presencial y
+            videollamada
           </p>
         </div>
       </section>
@@ -798,7 +740,7 @@ export default function HomePage() {
                   <span>
                     Monterrey · San Pedro Garza García
                     <br />
-                    Videollamada cobertura nacional
+                    Videollamada nacional
                   </span>
                 </div>
               </address>

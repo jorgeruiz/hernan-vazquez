@@ -81,7 +81,7 @@ export default function Navigation() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className={`text-sm font-medium transition-colors hover:text-primary ${
+                  className={`nav-link text-sm font-medium transition-colors hover:text-primary ${
                     scrolled ? "text-midnight/80" : "text-white/90"
                   }`}
                 >

@@ -10,7 +10,6 @@ export const physicianSchema = {
   "availableService": [
     { "@type": "MedicalProcedure", "name": "Consulta de Reumatología" },
     { "@type": "MedicalProcedure", "name": "Consulta por Videollamada" },
-    { "@type": "MedicalProcedure", "name": "Consulta a Domicilio" },
     { "@type": "MedicalProcedure", "name": "Tratamiento de Artritis" },
     { "@type": "MedicalProcedure", "name": "Tratamiento de Dolor Articular" }
   ],
@@ -129,10 +128,10 @@ export const faqPageSchema = {
     },
     {
       "@type": "Question",
-      "name": "¿El Dr. Hernán Vázquez da consulta a domicilio o por videollamada?",
+      "name": "¿El Dr. Hernán Vázquez da consulta por videollamada?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Sí, el Dr. Vázquez ofrece consulta presencial, consulta por videollamada y consulta a domicilio en Monterrey y San Pedro Garza García. Para agendar cualquiera de estas modalidades, puede contactar directamente por WhatsApp o llamar al consultorio."
+        "text": "Sí, el Dr. Vázquez ofrece consulta presencial y consulta por videollamada. Para agendar, puede contactar directamente por WhatsApp o llamar al consultorio."
       }
     },
     {
@@ -196,15 +195,6 @@ export const serviceSchemas = [
     "relevantSpecialty": "Rheumatology",
     "provider": { "@type": "Physician", "name": "Dr. Hernán Vázquez", "url": "https://reumamonterrey.com" },
     "areaServed": "México"
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "MedicalTherapy",
-    "name": "Consulta de Reumatología a Domicilio",
-    "description": "Visita médica domiciliaria para pacientes con movilidad reducida. Disponible en Monterrey y San Pedro Garza García.",
-    "relevantSpecialty": "Rheumatology",
-    "provider": { "@type": "Physician", "name": "Dr. Hernán Vázquez", "url": "https://reumamonterrey.com" },
-    "areaServed": ["Monterrey", "San Pedro Garza García"]
   },
   {
     "@context": "https://schema.org",

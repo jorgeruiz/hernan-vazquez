@@ -12,9 +12,16 @@
   --font-sans: var(--font-jakarta);
 }
 
+/* ─── Easing tokens ────────────────────────────────── */
+:root {
+  --ease-out:    cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
 /* ─── Reset & Base ─────────────────────────────────── */
 html {
-  scroll-behavior: auto; /* Lenis controls smooth scroll */
+  scroll-behavior: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -32,69 +39,219 @@ body {
   outline-offset: 3px;
 }
 
-/* ─── CTA Button Hover ─────────────────────────────── */
-.cta-primary {
-  transition: background-color 150ms ease-out, transform 150ms ease-out,
-    box-shadow 150ms ease-out;
-}
-.cta-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(2, 115, 181, 0.35);
+/* ══════════════════════════════════════════════════════
+   HERO ENTRANCE — staggered, CSS-only
+══════════════════════════════════════════════════════ */
+
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.cta-secondary {
-  transition: background-color 150ms ease-out, transform 150ms ease-out,
-    border-color 150ms ease-out;
-}
-.cta-secondary:hover {
-  transform: translateY(-2px);
+@keyframes heroFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
-/* ─── Navigation transition ────────────────────────── */
-.nav-scrolled {
-  background: rgba(255, 255, 255, 0.97);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+.hero-eyebrow {
+  animation: heroFadeUp 0.65s var(--ease-out) both;
+  animation-delay: 80ms;
 }
 
-/* ─── Section reveal base state ────────────────────── */
+.hero-heading {
+  animation: heroFadeUp 0.75s var(--ease-out) both;
+  animation-delay: 180ms;
+}
+
+.hero-subtext {
+  animation: heroFadeUp 0.65s var(--ease-out) both;
+  animation-delay: 320ms;
+}
+
+.hero-cta {
+  animation: heroFadeUp 0.55s var(--ease-out) both;
+  animation-delay: 440ms;
+}
+
+.hero-trust {
+  animation: heroFadeIn 0.6s ease both;
+  animation-delay: 600ms;
+}
+
+/* ══════════════════════════════════════════════════════
+   SCROLL REVEALS
+══════════════════════════════════════════════════════ */
+
 [data-reveal] {
   opacity: 0;
-  transform: translateY(40px);
+  transform: translateY(22px);
 }
 [data-reveal="ready"] {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 0.65s ease-out, transform 0.65s ease-out;
+  transition:
+    opacity 0.6s var(--ease-out),
+    transform 0.6s var(--ease-out);
 }
+
 [data-reveal-fast] {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(14px);
 }
 [data-reveal-fast="ready"] {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 0.45s ease-out, transform 0.45s ease-out;
+  transition:
+    opacity 0.4s var(--ease-out),
+    transform 0.4s var(--ease-out);
 }
 
-/* ─── Card stagger ─────────────────────────────────── */
+/* ── Card stagger (activated by JS via .card-grid) ── */
 .card-item {
   opacity: 0;
-  transform: translateY(32px);
+  transform: translateY(20px);
 }
 .card-item.revealed {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 0.55s ease-out, transform 0.55s ease-out;
+  transition:
+    opacity 0.55s var(--ease-out),
+    transform 0.55s var(--ease-out);
 }
-.card-item:nth-child(2) { transition-delay: 0.09s; }
-.card-item:nth-child(3) { transition-delay: 0.18s; }
+.card-item:nth-child(2).revealed { transition-delay: 70ms; }
+.card-item:nth-child(3).revealed { transition-delay: 140ms; }
+.card-item:nth-child(4).revealed { transition-delay: 210ms; }
+.card-item:nth-child(5).revealed { transition-delay: 280ms; }
+.card-item:nth-child(6).revealed { transition-delay: 350ms; }
 
-/* ─── FAQ Accordion ────────────────────────────────── */
+/* ── Credential stagger ── */
+.cred-item {
+  opacity: 0;
+  transform: translateX(-12px);
+}
+.cred-item.revealed {
+  opacity: 1;
+  transform: translateX(0);
+  transition:
+    opacity 0.5s var(--ease-out),
+    transform 0.5s var(--ease-out);
+}
+.cred-item:nth-child(2).revealed { transition-delay: 60ms; }
+.cred-item:nth-child(3).revealed { transition-delay: 120ms; }
+.cred-item:nth-child(4).revealed { transition-delay: 180ms; }
+.cred-item:nth-child(5).revealed { transition-delay: 240ms; }
+
+/* ══════════════════════════════════════════════════════
+   BUTTONS — press feedback (Emil: scale(0.97) on :active)
+══════════════════════════════════════════════════════ */
+
+.cta-primary {
+  transition:
+    background-color 150ms ease,
+    transform 160ms var(--ease-out),
+    box-shadow 160ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cta-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(2, 115, 181, 0.32);
+  }
+}
+
+.cta-primary:active {
+  transform: scale(0.97) !important;
+  box-shadow: none !important;
+  transition-duration: 80ms;
+}
+
+.cta-secondary {
+  transition:
+    background-color 150ms ease,
+    transform 160ms var(--ease-out),
+    border-color 150ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cta-secondary:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.cta-secondary:active {
+  transform: scale(0.97) !important;
+  transition-duration: 80ms;
+}
+
+/* ══════════════════════════════════════════════════════
+   SERVICE CARDS — lift on hover
+══════════════════════════════════════════════════════ */
+
+.service-card {
+  transition:
+    transform 220ms var(--ease-out),
+    box-shadow 220ms var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.1);
+  }
+  .service-card:hover .card-image {
+    transform: scale(1.04);
+  }
+}
+
+.card-image {
+  transition: transform 500ms var(--ease-out);
+}
+
+/* ══════════════════════════════════════════════════════
+   NAVIGATION
+══════════════════════════════════════════════════════ */
+
+.nav-scrolled {
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+}
+
+/* Nav links underline on hover */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 100%;
+  height: 1px;
+  background: #0273B5;
+  transition: right 200ms var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .nav-link:hover::after {
+    right: 0;
+  }
+}
+
+/* ══════════════════════════════════════════════════════
+   FAQ ACCORDION
+══════════════════════════════════════════════════════ */
+
 .faq-content {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows 0.3s ease;
+  transition: grid-template-rows 280ms var(--ease-out);
 }
 .faq-content.open {
   grid-template-rows: 1fr;
@@ -103,7 +260,59 @@ body {
   overflow: hidden;
 }
 
-/* ─── WhatsApp float button ────────────────────────── */
+.faq-icon {
+  transition: transform 280ms var(--ease-out);
+}
+.faq-icon.open {
+  transform: rotate(45deg);
+}
+
+/* ══════════════════════════════════════════════════════
+   TESTIMONIAL CAROUSEL
+══════════════════════════════════════════════════════ */
+
+.carousel-track {
+  will-change: transform;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.carousel-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: rgba(255,255,255,0.3);
+  transition: width 220ms var(--ease-out), background 220ms ease;
+}
+.carousel-dot.active {
+  width: 22px;
+  background: #ffffff;
+}
+
+.carousel-arrow {
+  transition: opacity 160ms ease, transform 160ms var(--ease-out), background 160ms ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .carousel-arrow:hover {
+    transform: scale(1.08);
+  }
+}
+.carousel-arrow:active {
+  transform: scale(0.93);
+  transition-duration: 80ms;
+}
+.carousel-arrow:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+.carousel-arrow:disabled:hover {
+  transform: none;
+}
+
+/* ══════════════════════════════════════════════════════
+   WHATSAPP FLOAT
+══════════════════════════════════════════════════════ */
+
 .whatsapp-float {
   position: fixed;
   bottom: 1.5rem;
@@ -116,30 +325,24 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
-  transition: transform 150ms ease-out, box-shadow 150ms ease-out;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  transition: transform 160ms var(--ease-out), box-shadow 160ms ease;
 }
-.whatsapp-float:hover {
-  transform: scale(1.08) translateY(-2px);
-  box-shadow: 0 8px 28px rgba(37, 211, 102, 0.55);
-}
-
-/* ─── Reduced motion ───────────────────────────────── */
-@media (prefers-reduced-motion: reduce) {
-  [data-reveal],
-  [data-reveal-fast],
-  .card-item {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-  }
-  .cta-primary:hover,
-  .cta-secondary:hover {
-    transform: none;
+@media (hover: hover) and (pointer: fine) {
+  .whatsapp-float:hover {
+    transform: scale(1.08) translateY(-2px);
+    box-shadow: 0 8px 28px rgba(37, 211, 102, 0.5);
   }
 }
+.whatsapp-float:active {
+  transform: scale(0.96);
+  transition-duration: 80ms;
+}
 
-/* ─── Mobile drawer overlay ────────────────────────── */
+/* ══════════════════════════════════════════════════════
+   MOBILE DRAWER
+══════════════════════════════════════════════════════ */
+
 .drawer-overlay {
   position: fixed;
   inset: 0;
@@ -147,14 +350,17 @@ body {
   z-index: 40;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.25s ease;
+  transition: opacity 250ms ease;
 }
 .drawer-overlay.open {
   opacity: 1;
   pointer-events: auto;
 }
 
-/* ─── Typography helpers ───────────────────────────── */
+/* ══════════════════════════════════════════════════════
+   TYPOGRAPHY HELPERS
+══════════════════════════════════════════════════════ */
+
 .heading-display {
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -166,4 +372,54 @@ body {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: #0273B5;
+}
+
+/* ══════════════════════════════════════════════════════
+   REDUCED MOTION — opacity transitions only
+══════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-eyebrow,
+  .hero-heading,
+  .hero-subtext,
+  .hero-cta,
+  .hero-trust {
+    animation: heroFadeIn 0.3s ease both;
+  }
+
+  [data-reveal],
+  [data-reveal-fast] {
+    transform: none;
+  }
+  [data-reveal="ready"],
+  [data-reveal-fast="ready"] {
+    transition: opacity 0.3s ease;
+    transform: none;
+  }
+
+  .card-item {
+    transform: none;
+  }
+  .card-item.revealed {
+    transition: opacity 0.3s ease;
+    transform: none;
+  }
+
+  .cred-item {
+    transform: none;
+  }
+  .cred-item.revealed {
+    transition: opacity 0.3s ease;
+    transform: none;
+  }
+
+  .cta-primary:hover,
+  .cta-secondary:hover,
+  .service-card:hover {
+    transform: none;
+  }
+  .cta-primary:active,
+  .cta-secondary:active {
+    transform: none !important;
+  }
 }

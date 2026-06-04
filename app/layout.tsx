@@ -17,7 +17,7 @@ const jakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: "Reumatólogo en Monterrey | Dr. Hernán Vázquez",
   description:
-    "Médico reumatólogo certificado en Monterrey con más de 10 años de experiencia. Especialista en artritis, lupus, fibromialgia y enfermedades autoinmunes. Consulta presencial, videollamada y domicilio. Tel. 81 8317 8342.",
+    "Médico reumatólogo certificado en Monterrey con más de 10 años de experiencia. Especialista en artritis, lupus, fibromialgia y enfermedades autoinmunes. Consulta presencial y videollamada. Tel. 81 8317 8342.",
   keywords: [
     "reumatólogo en Monterrey",
     "especialista en artritis Monterrey",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     alternateLocale: ["en_US"],
     title: "Reumatólogo en Monterrey | Dr. Hernán Vázquez",
     description:
-      "Médico reumatólogo certificado en Monterrey. Artritis, lupus, fibromialgia y más. Consulta presencial, videollamada y domicilio.",
+      "Médico reumatólogo certificado en Monterrey. Artritis, lupus, fibromialgia y más. Consulta presencial y videollamada.",
     url: "https://reumamonterrey.com/",
     images: [
       {
