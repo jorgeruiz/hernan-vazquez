@@ -2,6 +2,14 @@
 
 import { useState } from 'react'
 
+// Tipado mínimo para gtag / dataLayer
+declare global {
+  interface Window {
+    dataLayer?: Record<string, unknown>[]
+    gtag?: (...args: unknown[]) => void
+  }
+}
+
 const WA_NUMBER = '528183178342'
 
 type FormData = {
@@ -24,14 +32,48 @@ const inputClass =
 
 export default function WhatsAppWidget() {
   const [open, setOpen] = useState(false)
+  const [sending, setSending] = useState(false)
   const [form, setForm] = useState<FormData>({ nombre: '', correo: '', whatsapp: '', colonia: '' })
 
   const handleChange =
     (field: keyof FormData) => (e: React.ChangeEvent<HTMLInputElement>) =>
       setForm(f => ({ ...f, [field]: e.target.value }))
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const fireConversionEvents = () => {
+    // dataLayer → GTM puede activar conversiones desde aquí
+    window.dataLayer?.push({
+      event: 'lead_whatsapp',
+      lead_nombre: form.nombre,
+      lead_colonia: form.colonia,
+    })
+    // GA4: evento estándar "generate_lead"
+    window.gtag?.('event', 'generate_lead', {
+      event_category: 'WhatsApp',
+      event_label: 'Formulario WhatsApp',
+    })
+    // Google Ads: conversión genérica (configura el label en Google Ads)
+    window.gtag?.('event', 'conversion', { send_to: 'AW-16494564617' })
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setSending(true)
+
+    // Enviar datos al servidor (email a hvazquezg@gmail.com)
+    try {
+      await fetch('/api/contacto', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+    } catch {
+      // No bloqueamos el flujo si el email falla
+    }
+
+    // Conversiones
+    fireConversionEvents()
+
+    // Abrir WhatsApp con datos prellenados
     const msg = encodeURIComponent(
       `Hola, me gustaría agendar una cita con el Dr. Vázquez.\n\n` +
         `Nombre: ${form.nombre}\n` +
@@ -40,6 +82,7 @@ export default function WhatsAppWidget() {
         `Colonia: ${form.colonia}`
     )
     window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`, '_blank', 'noopener,noreferrer')
+    setSending(false)
     setOpen(false)
     setForm({ nombre: '', correo: '', whatsapp: '', colonia: '' })
   }
@@ -112,11 +155,13 @@ export default function WhatsAppWidget() {
 
             <button
               type="submit"
-              className="w-full py-2.5 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-semibold text-sm
-                         rounded-xl transition-colors flex items-center justify-center gap-2 mt-1"
+              disabled={sending}
+              className="w-full py-2.5 bg-[#25D366] hover:bg-[#1ebe5d] disabled:opacity-60
+                         text-white font-semibold text-sm rounded-xl transition-colors
+                         flex items-center justify-center gap-2 mt-1"
             >
               <WaIcon size={16} />
-              Enviar por WhatsApp
+              {sending ? 'Enviando…' : 'Enviar por WhatsApp'}
             </button>
           </form>
         </div>
