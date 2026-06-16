@@ -10,7 +10,7 @@ declare global {
   }
 }
 
-const WA_NUMBER = '528183178342'
+const WA_NUMBER = '528125656698'
 
 type FormData = {
   nombre: string

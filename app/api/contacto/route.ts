@@ -1,8 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { Resend } from 'resend'
+import nodemailer from 'nodemailer'
 
-const DESTINATION = 'hvazquezg@gmail.com'
-const FROM = process.env.RESEND_FROM ?? 'Sitio Dr. Vázquez <contacto@reumamonterrey.com>'
+const RECIPIENTS = ['hvazquezg@gmail.com', 'almarne72@hotmail.com']
+
+function createTransport() {
+  return nodemailer.createTransport({
+    host: process.env.SMTP_HOST ?? 'smtp.hostinger.com',
+    port: Number(process.env.SMTP_PORT ?? 465),
+    secure: true, // SSL en puerto 465
+    auth: {
+      user: process.env.SMTP_USER, // ej: contacto@reumamonterrey.com
+      pass: process.env.SMTP_PASS,
+    },
+  })
+}
 
 function buildHtml(nombre: string, correo: string, whatsapp: string, colonia: string) {
   const waLink = `https://wa.me/52${whatsapp.replace(/\D/g, '')}`
@@ -57,11 +68,12 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Campos incompletos' }, { status: 400 })
     }
 
-    const resend = new Resend(process.env.RESEND_API_KEY)
+    const from = `Dr. Hernán Vázquez <${process.env.SMTP_USER}>`
+    const transporter = createTransport()
 
-    await resend.emails.send({
-      from: FROM,
-      to: [DESTINATION],
+    await transporter.sendMail({
+      from,
+      to: RECIPIENTS,
       replyTo: correo,
       subject: `Nueva cita — ${nombre} (${colonia})`,
       html: buildHtml(nombre, correo, whatsapp, colonia),
