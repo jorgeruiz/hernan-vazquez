@@ -33,12 +33,12 @@ const cspDirectives: Record<string, string[]> = {
     "https://*.analytics.google.com",
     "https://stats.g.doubleclick.net",
     "https://region1.google-analytics.com",
-    "https://api.elevenlabs.io",
-    "wss://api.elevenlabs.io",             // ElevenLabs audio streaming
+    "https://*.elevenlabs.io",             // ElevenLabs (api, api.us, api.eu, etc.)
+    "wss://*.elevenlabs.io",               // ElevenLabs audio streaming (todos los dominios regionales)
     "https://googleads.g.doubleclick.net", // Google Ads conversiones
     "https://www.googleadservices.com",    // Google Ads conversiones
   ],
-  "media-src":       ["'self'", "https://api.elevenlabs.io"], // audio del bot
+  "media-src":       ["'self'", "https://*.elevenlabs.io"], // audio del bot (todos los dominios regionales)
   "frame-src":       [
     "https://www.google.com",        // Google Maps embed
     "https://maps.google.com",
