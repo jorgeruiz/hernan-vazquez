@@ -38,6 +38,7 @@ const cspDirectives: Record<string, string[]> = {
     "https://googleads.g.doubleclick.net", // Google Ads conversiones
     "https://www.googleadservices.com",    // Google Ads conversiones
     "https://n8n-n8n.6lk5jx.easypanel.host", // n8n webhooks (disponibilidad + reservar cita)
+    "https://www.google.com",               // Google Ads remarketing hits
   ],
   "media-src":       ["'self'", "https://*.elevenlabs.io"], // audio del bot (todos los dominios regionales)
   "frame-src":       [
