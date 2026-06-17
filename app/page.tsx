@@ -6,7 +6,7 @@ import { faqPageSchema, serviceSchemas } from "@/lib/schemas"
 import BotonAgendar from "@/components/BotonAgendar"
 
 const WA_URL =
-  "https://wa.me/528183178342?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita%20con%20el%20Dr.%20V%C3%A1zquez."
+  "https://wa.me/528125656698?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita%20con%20el%20Dr.%20V%C3%A1zquez."
 
 const CONDITIONS = [
   "Artritis reumatoide",
