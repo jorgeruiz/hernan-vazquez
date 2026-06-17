@@ -46,6 +46,7 @@ const cspDirectives: Record<string, string[]> = {
     "https://maps.google.com",
     "https://www.googletagmanager.com", // GTM noscript iframe
   ],
+  "worker-src":      ["'self'", "blob:"],          // ElevenLabs AudioWorklet
   "object-src":      ["'none'"],
   "base-uri":        ["'self'"],
   "form-action":     ["'self'"],
