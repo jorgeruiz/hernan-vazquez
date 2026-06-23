@@ -15,6 +15,7 @@ const cspDirectives: Record<string, string[]> = {
     "https://www.googletagmanager.com",
     "https://www.google-analytics.com",
     "https://ssl.google-analytics.com",
+    "https://googleads.g.doubleclick.net",  // Google Ads conversion scripts
     "https://elevenlabs.io",
     "https://unpkg.com", // ElevenLabs widget CDN alternativo
   ],
@@ -24,6 +25,7 @@ const cspDirectives: Record<string, string[]> = {
     "data:",
     "https://www.googletagmanager.com",
     "https://www.google-analytics.com",
+    "https://googleads.g.doubleclick.net",  // Google Ads conversion pixels
     "https://maps.gstatic.com", // Google Maps static tiles
   ],
   "font-src":        ["'self'"], // next/font self-hostea las fuentes
@@ -36,6 +38,7 @@ const cspDirectives: Record<string, string[]> = {
     "https://*.elevenlabs.io",             // ElevenLabs (api, api.us, api.eu, etc.)
     "wss://*.elevenlabs.io",               // ElevenLabs audio streaming (todos los dominios regionales)
     "https://googleads.g.doubleclick.net", // Google Ads conversiones
+    "https://ad.doubleclick.net",          // Google Ads CCM collect
     "https://www.googleadservices.com",    // Google Ads conversiones
     "https://www.googletagmanager.com",    // GTM tag firing (XHR/fetch)
     "https://n8n-n8n.6lk5jx.easypanel.host", // n8n webhooks (disponibilidad + reservar cita)
