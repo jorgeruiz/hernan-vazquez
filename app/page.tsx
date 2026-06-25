@@ -641,6 +641,13 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-5 lg:px-8">
           <div className="grid md:grid-cols-3 gap-8 mb-10 pb-10 border-b border-white/10">
             <div>
+              <Image
+                src="/images/logo-dr-hernan-vazquez-reumatologo-blanco.webp"
+                alt="Dr. Hernán Vázquez — Reumatólogo en Monterrey"
+                width={140}
+                height={74}
+                className="h-12 w-auto mb-3"
+              />
               <p className="text-white font-bold text-base mb-1">Dr. Hernán Vázquez</p>
               <p className="text-primary text-xs font-semibold tracking-widest uppercase mb-4">
                 Médico Reumatólogo

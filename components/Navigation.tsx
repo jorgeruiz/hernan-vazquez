@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { useAgendaCita } from "./AgendaCitaContext"
 
 const NAV_LINKS = [
@@ -58,22 +59,31 @@ export default function Navigation() {
           {/* Logo */}
           <Link
             href="#inicio"
-            className="flex flex-col leading-none"
+            className="flex items-center gap-3 leading-none"
             onClick={handleNavClick}
           >
-            <span
-              className={`text-sm font-bold tracking-wide transition-colors ${
-                scrolled ? "text-navy" : "text-white"
-              }`}
-            >
-              Dr. Hernán Vázquez
-            </span>
-            <span
-              className={`text-xs font-medium tracking-widest uppercase transition-colors ${
-                scrolled ? "text-primary" : "text-blue-200"
-              }`}
-            >
-              Reumatólogo
+            <Image
+              src="/images/logo-dr-hernan-vazquez-reumatologo-monterrey.webp"
+              alt="Dr. Hernán Vázquez — Reumatólogo en Monterrey"
+              width={40}
+              height={40}
+              className="h-9 w-auto flex-shrink-0"
+            />
+            <span className="flex flex-col">
+              <span
+                className={`text-sm font-bold tracking-wide transition-colors ${
+                  scrolled ? "text-navy" : "text-white"
+                }`}
+              >
+                Dr. Hernán Vázquez
+              </span>
+              <span
+                className={`text-xs font-medium tracking-widest uppercase transition-colors ${
+                  scrolled ? "text-primary" : "text-blue-200"
+                }`}
+              >
+                Reumatólogo
+              </span>
             </span>
           </Link>
 
