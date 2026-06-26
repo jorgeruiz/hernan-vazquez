@@ -63,11 +63,11 @@ export default function Navigation() {
             onClick={handleNavClick}
           >
             <Image
-              src="/images/logo-dr-hernan-vazquez-reumatologo-monterrey.webp"
+              src="/images/isotipo-dr-hernan-vazquez-reumatologo.webp"
               alt="Dr. Hernán Vázquez — Reumatólogo en Monterrey"
-              width={40}
-              height={40}
-              className="h-9 w-auto flex-shrink-0"
+              width={36}
+              height={36}
+              className="h-8 w-8 flex-shrink-0"
             />
             <span className="flex flex-col">
               <span
