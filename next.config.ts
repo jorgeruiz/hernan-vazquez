@@ -37,7 +37,7 @@ const cspDirectives: Record<string, string[]> = {
     "https://fonts.gstatic.com",            // GTM debug icons
     "https://storage.googleapis.com",       // ElevenLabs CDN assets
   ],
-  "font-src":        ["'self'"], // next/font self-hostea las fuentes
+  "font-src":        ["'self'", "https://fonts.gstatic.com"], // next/font self-hostea + GTM debug fonts
   "connect-src":     [
     "'self'",
     "https://*.google-analytics.com",
