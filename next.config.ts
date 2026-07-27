@@ -19,14 +19,23 @@ const cspDirectives: Record<string, string[]> = {
     "https://elevenlabs.io",
     "https://unpkg.com", // ElevenLabs widget CDN alternativo
   ],
-  "style-src":       ["'self'", "'unsafe-inline'"],
+  "style-src":       [
+    "'self'",
+    "'unsafe-inline'",
+    "https://www.googletagmanager.com",  // GTM debug badge CSS
+    "https://fonts.googleapis.com",      // GTM debug fonts
+  ],
   "img-src":         [
     "'self'",
     "data:",
     "https://www.googletagmanager.com",
     "https://www.google-analytics.com",
     "https://googleads.g.doubleclick.net",  // Google Ads conversion pixels
-    "https://maps.gstatic.com", // Google Maps static tiles
+    "https://www.google.com",               // Google Ads remarketing pixels
+    "https://www.google.com.mx",            // Google Ads remarketing pixels (MX)
+    "https://maps.gstatic.com",             // Google Maps static tiles
+    "https://fonts.gstatic.com",            // GTM debug icons
+    "https://storage.googleapis.com",       // ElevenLabs CDN assets
   ],
   "font-src":        ["'self'"], // next/font self-hostea las fuentes
   "connect-src":     [
