@@ -1,47 +1,43 @@
 # Mapa del Sitio — Hernan Vazquez
 
-> **Instrucciones para Claude Code:** Llena este archivo al terminar la construcción inicial. El mapa de páginas y secciones es usado por el sistema de solicitudes de cambio del cliente — cuando el cliente pida un cambio, seleccionará una sección de esta lista. Formato correcto es importante para que el selector funcione.
->
-> Usa IDs en `snake_case` corto y consistente. Las etiquetas deben ser legibles para un cliente no técnico.
->
-> Elimina las instrucciones en bloques `>` al llenar el documento.
-
-**Última actualización:** [fecha de construcción inicial]
+**Ultima actualizacion:** 2026-08-20
 
 ---
 
-## Páginas y secciones
+## Paginas y secciones
 
 ### Inicio (`/`)
 
-**ID de página:** `home`
+**ID de pagina:** `home`
 
-| ID de sección | Etiqueta para el cliente |
-|--------------|--------------------------|
-| `home_hero` | Hero principal |
-| `home_about` | Acerca de / Quiénes somos |
-| `home_services` | Servicios destacados |
-| `home_cta` | Llamada a la acción principal |
-| `home_footer` | Pie de página |
+| ID de seccion | Etiqueta para el cliente | Ancla HTML |
+|--------------|--------------------------|------------|
+| `home_hero` | Hero principal (titulo, botones de cita y telefono) | `#inicio` |
+| `home_trust_strip` | Barra de credenciales (anos de experiencia, CMR, UNAM) | Sin ancla |
+| `home_servicios` | Condiciones que tratamos (cards de artritis, lupus, lista de condiciones) | `#servicios` |
+| `home_doctor` | Sobre el Dr. Hernan Vazquez (foto, formacion, cita) | `#autoridad` |
+| `home_testimonios` | Testimonios de pacientes (carrusel) | `#testimonios` |
+| `home_faqs` | Preguntas frecuentes (acordeon de 8 preguntas) | `#faqs` |
+| `home_ubicacion` | Ubicacion y contacto (datos, telefonos, mapa de Google) | `#ubicacion` |
+| `home_cta_final` | Llamada a la accion final (fondo con imagen de Monterrey) | `#contacto` |
+| `home_footer` | Pie de pagina (logo, navegacion, datos de contacto) | Sin ancla |
 
-> Agrega o elimina secciones según lo que existe en el sitio real.
+### Widgets flotantes
 
----
+**ID de pagina:** `widgets`
 
-> Replica el bloque anterior para cada página adicional del sitio. Ejemplo:
-
-### [Nombre de la página] (`/[ruta]`)
-
-**ID de página:** `[id_pagina]`
-
-| ID de sección | Etiqueta para el cliente |
-|--------------|--------------------------|
-| `[id_pagina]_[seccion]` | [Nombre legible] |
+| ID de seccion | Etiqueta para el cliente | Ubicacion |
+|--------------|--------------------------|-----------|
+| `widget_whatsapp` | Boton y formulario de WhatsApp | Esquina inferior izquierda |
+| `widget_elevenlabs` | Asistente de voz (chatbot) | Esquina inferior derecha |
+| `widget_agendar_modal` | Modal de agendar cita (los 5 pasos) | Ventana emergente central |
 
 ---
 
 ## Notas
 
-> Cualquier aclaración sobre la estructura de navegación, páginas con rutas dinámicas, o secciones condicionales.
-
-- [Nota si aplica]
+- El sitio es una sola pagina (one-page) con navegacion por anclas. No hay paginas adicionales.
+- La ruta `/en/` esta referenciada en metadata y sitemap pero no esta implementada.
+- La navegacion principal (desktop y mobile drawer) enlaza a: `#servicios`, `#autoridad`, `#testimonios`, `#faqs`, `#contacto`.
+- El `widget_agendar_modal` se activa desde multiples CTAs repartidos por toda la pagina, no tiene posicion fija visible hasta que se abre.
+- La API route `/api/contacto` no es una pagina visible para el cliente; es un endpoint interno del formulario de WhatsApp.
