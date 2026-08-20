@@ -136,7 +136,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <SmoothScrollProvider />
           <ScrollAnimations />
           <Navigation />
-          <main id="inicio">{children}</main>
+          <main>{children}</main>
 
           {/* WhatsApp — burbuja izquierda con formulario previo */}
           <WhatsAppWidget />
