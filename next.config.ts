@@ -18,6 +18,7 @@ const cspDirectives: Record<string, string[]> = {
     "https://googleads.g.doubleclick.net",  // Google Ads conversion scripts
     "https://elevenlabs.io",
     "https://unpkg.com", // ElevenLabs widget CDN alternativo
+    "https://connect.facebook.net",    // Meta Pixel (fbevents.js)
   ],
   "style-src":       [
     "'self'",
@@ -36,6 +37,7 @@ const cspDirectives: Record<string, string[]> = {
     "https://maps.gstatic.com",             // Google Maps static tiles
     "https://fonts.gstatic.com",            // GTM debug icons
     "https://storage.googleapis.com",       // ElevenLabs CDN assets
+    "https://www.facebook.com",              // Meta Pixel noscript img
   ],
   "font-src":        ["'self'", "https://fonts.gstatic.com"], // next/font self-hostea + GTM debug fonts
   "connect-src":     [
@@ -52,6 +54,7 @@ const cspDirectives: Record<string, string[]> = {
     "https://www.googletagmanager.com",    // GTM tag firing (XHR/fetch)
     "https://n8n-n8n.6lk5jx.easypanel.host", // n8n webhooks (disponibilidad + reservar cita)
     "https://www.google.com",               // Google Ads remarketing hits
+    "https://www.facebook.com",              // Meta Pixel event hits
   ],
   "media-src":       ["'self'", "https://*.elevenlabs.io"], // audio del bot (todos los dominios regionales)
   "frame-src":       [
