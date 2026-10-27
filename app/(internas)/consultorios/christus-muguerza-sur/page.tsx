@@ -166,10 +166,7 @@ export default function MuguerzaSurPage() {
             <BotonAgendar className="inline-flex items-center gap-2 bg-white text-navy font-semibold px-6 py-3 rounded-full cta-primary text-sm">
               Agendar cita
             </BotonAgendar>
-            <WhatsAppCTA
-              text="WhatsApp"
-              message="Hola, me gustaría agendar una cita en el consultorio de Muguerza Sur con el Dr. Vázquez González."
-            />
+            <WhatsAppCTA text="Enviar mensaje" />
           </div>
         </section>
 

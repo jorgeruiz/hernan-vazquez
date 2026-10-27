@@ -11,6 +11,7 @@ import WhatsAppWidget from "@/components/WhatsAppWidget"
 import ElevenLabsWidget from "@/components/ElevenLabsWidget"
 import { AgendaCitaProvider } from "@/components/AgendaCitaContext"
 import AgendaCitaModal from "@/components/AgendaCitaModal"
+import { WhatsAppFormProvider } from "@/components/WhatsAppFormContext"
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -159,6 +160,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         />
 
         <AgendaCitaProvider>
+        <WhatsAppFormProvider>
           <SmoothScrollProvider />
           <ScrollAnimations />
           <Navigation />
@@ -172,6 +174,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
           {/* Modal de agendado de citas */}
           <AgendaCitaModal />
+        </WhatsAppFormProvider>
         </AgendaCitaProvider>
       </body>
     </html>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import Breadcrumbs from "@/components/Breadcrumbs"
+import WhatsAppCTA from "@/components/WhatsAppCTA"
 import { enfermedades } from "@/lib/enfermedades"
 
 export const metadata: Metadata = {
@@ -72,14 +73,10 @@ export default function EnfermedadesPage() {
           reumáticas y prevenir complicaciones.
         </p>
         <div className="flex flex-wrap justify-center gap-3">
-          <a
-            href="https://wa.me/528125656698?text=Hola%2C%20me%20gustar%C3%ADa%20consultar%20sobre%20mis%20s%C3%ADntomas%20con%20el%20Dr.%20V%C3%A1zquez."
-            target="_blank"
-            rel="noopener noreferrer"
+          <WhatsAppCTA
+            text="Enviar mensaje"
             className="inline-flex items-center gap-2 bg-white text-navy font-semibold px-6 py-3 rounded-full cta-primary text-sm"
-          >
-            Consultar por WhatsApp
-          </a>
+          />
           <a
             href="tel:+528183178342"
             className="inline-flex items-center gap-2 border border-white/30 text-white font-medium px-6 py-3 rounded-full cta-secondary text-sm"

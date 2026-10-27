@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import Breadcrumbs from "@/components/Breadcrumbs"
 import BotonAgendar from "@/components/BotonAgendar"
+import WhatsAppCTA from "@/components/WhatsAppCTA"
 
 export const metadata: Metadata = {
   title: "Consultorios de Reumatología en Monterrey | Dr. Hernán Vázquez González",
@@ -108,14 +109,10 @@ export default function ConsultoriosPage() {
           >
             Llamar: 81 8317 8342
           </a>
-          <a
-            href="https://wa.me/528125656698?text=Hola%2C%20me%20gustar%C3%ADa%20saber%20en%20qu%C3%A9%20consultorio%20puedo%20agendar%20cita."
-            target="_blank"
-            rel="noopener noreferrer"
+          <WhatsAppCTA
+            text="Enviar mensaje"
             className="inline-flex items-center gap-2 border border-navy/20 text-navy font-medium px-5 py-2.5 rounded-full cta-secondary"
-          >
-            WhatsApp
-          </a>
+          />
         </div>
       </section>
     </article>

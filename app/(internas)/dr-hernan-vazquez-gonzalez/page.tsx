@@ -99,7 +99,7 @@ export default function DoctorPage() {
                 </svg>
                 Agendar cita
               </BotonAgendar>
-              <WhatsAppCTA text="WhatsApp" />
+              <WhatsAppCTA text="Enviar mensaje" />
             </div>
 
             <div className="flex flex-wrap gap-x-6 gap-y-1 mt-5 text-sm text-muted">

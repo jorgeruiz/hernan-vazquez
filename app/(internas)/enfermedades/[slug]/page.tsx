@@ -135,10 +135,7 @@ export default async function EnfermedadPage({ params }: Props) {
               </svg>
               Agendar cita
             </BotonAgendar>
-            <WhatsAppCTA
-              text="Consultar por WhatsApp"
-              message={`Hola, me gustaría consultar sobre ${enfermedad.nombre.toLowerCase()} con el Dr. Vázquez González.`}
-            />
+            <WhatsAppCTA text="Enviar mensaje" />
           </div>
         </section>
 

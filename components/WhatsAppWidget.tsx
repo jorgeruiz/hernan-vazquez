@@ -1,6 +1,7 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useWhatsAppForm } from './WhatsAppFormContext'
 
 // Tipado mínimo para gtag / dataLayer
 declare global {
@@ -31,8 +32,14 @@ const inputClass =
   'placeholder:text-gray-400 transition-colors'
 
 export default function WhatsAppWidget() {
+  const { isOpen: externalOpen, closeForm } = useWhatsAppForm()
   const [open, setOpen] = useState(false)
   const [sending, setSending] = useState(false)
+
+  // Allow external triggers (WhatsAppCTA buttons) to open the form
+  useEffect(() => {
+    if (externalOpen) setOpen(true)
+  }, [externalOpen])
   const [form, setForm] = useState<FormData>({ nombre: '', correo: '', whatsapp: '', colonia: '' })
 
   const handleChange =
@@ -84,7 +91,13 @@ export default function WhatsAppWidget() {
     window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`, '_blank', 'noopener,noreferrer')
     setSending(false)
     setOpen(false)
+    closeForm()
     setForm({ nombre: '', correo: '', whatsapp: '', colonia: '' })
+  }
+
+  const handleClose = () => {
+    setOpen(false)
+    closeForm()
   }
 
   return (
@@ -104,7 +117,7 @@ export default function WhatsAppWidget() {
               </div>
             </div>
             <button
-              onClick={() => setOpen(false)}
+              onClick={handleClose}
               aria-label="Cerrar"
               className="text-white/60 hover:text-white transition-colors ml-2 shrink-0"
             >
@@ -169,7 +182,7 @@ export default function WhatsAppWidget() {
 
       {/* Bubble */}
       <button
-        onClick={() => setOpen(o => !o)}
+        onClick={() => { if (open) handleClose(); else setOpen(true) }}
         aria-label="Agendar cita por WhatsApp"
         className="w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center
                    shadow-[0_4px_20px_rgba(37,211,102,0.4)]
