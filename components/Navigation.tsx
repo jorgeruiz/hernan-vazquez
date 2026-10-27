@@ -6,10 +6,10 @@ import Image from "next/image"
 import { useAgendaCita } from "./AgendaCitaContext"
 
 const NAV_LINKS = [
-  { label: "Servicios", href: "#servicios" },
-  { label: "Dr. Vázquez", href: "#autoridad" },
-  { label: "Testimonios", href: "#testimonios" },
-  { label: "Preguntas", href: "#faqs" },
+  { label: "Dr. Vázquez", href: "/dr-hernan-vazquez-gonzalez" },
+  { label: "Consultorios", href: "/consultorios/christus-muguerza-sur" },
+  { label: "Enfermedades", href: "/enfermedades/artritis-reumatoide" },
+  { label: "Consulta en línea", href: "/consulta-en-linea" },
   { label: "Contacto", href: "#contacto" },
 ]
 
@@ -58,7 +58,7 @@ export default function Navigation() {
         >
           {/* Logo */}
           <Link
-            href="#inicio"
+            href="/"
             className="flex items-center gap-3 leading-none"
             onClick={handleNavClick}
           >
@@ -89,18 +89,24 @@ export default function Navigation() {
 
           {/* Desktop Links */}
           <ul className="hidden lg:flex items-center gap-7">
-            {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  className={`nav-link text-sm font-medium transition-colors hover:text-primary ${
-                    scrolled ? "text-midnight/80" : "text-white/90"
-                  }`}
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const className = `nav-link text-sm font-medium transition-colors hover:text-primary ${
+                scrolled ? "text-midnight/80" : "text-white/90"
+              }`
+              return (
+                <li key={link.href}>
+                  {link.href.startsWith("#") ? (
+                    <a href={link.href} className={className}>
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link href={link.href} className={className}>
+                      {link.label}
+                    </Link>
+                  )}
+                </li>
+              )
+            })}
           </ul>
 
           {/* Desktop CTA */}
@@ -168,13 +174,23 @@ export default function Navigation() {
         <ul className="flex flex-col px-6 py-6 gap-5">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
-              <a
-                href={link.href}
-                onClick={handleNavClick}
-                className="text-base font-medium text-midnight/80 hover:text-primary transition-colors"
-              >
-                {link.label}
-              </a>
+              {link.href.startsWith("#") ? (
+                <a
+                  href={link.href}
+                  onClick={handleNavClick}
+                  className="text-base font-medium text-midnight/80 hover:text-primary transition-colors"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  href={link.href}
+                  onClick={handleNavClick}
+                  className="text-base font-medium text-midnight/80 hover:text-primary transition-colors"
+                >
+                  {link.label}
+                </Link>
+              )}
             </li>
           ))}
         </ul>

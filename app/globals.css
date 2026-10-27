@@ -423,3 +423,9 @@ body {
     transform: none !important;
   }
 }
+
+/* ══════════════════════════════════════════════════════
+   INTERNAL PAGES
+   Root nav is hidden via HideRootNav.tsx (JS) on
+   internal pages to avoid conflict with InternalNavigation.
+══════════════════════════════════════════════════════ */
