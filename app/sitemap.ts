@@ -32,10 +32,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${BASE}/consulta-en-linea`,
+      url: `${BASE}/consultorios`,
       lastModified: now,
       changeFrequency: "monthly",
-      priority: 0.8,
+      priority: 0.7,
+    },
+    {
+      url: `${BASE}/enfermedades`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.7,
     },
   ]
 

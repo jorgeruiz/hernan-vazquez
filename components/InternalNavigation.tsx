@@ -1,22 +1,19 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { useAgendaCita } from "./AgendaCitaContext"
-
-const NAV_LINKS = [
-  { label: "Dr. Vázquez", href: "/dr-hernan-vazquez-gonzalez" },
-  { label: "Consultorios", href: "/consultorios/christus-muguerza-sur" },
-  { label: "Enfermedades", href: "/enfermedades/artritis-reumatoide" },
-  { label: "Consulta en línea", href: "/consulta-en-linea" },
-  { label: "Contacto", href: "/#contacto" },
-]
+import { NAV_SECTIONS, type NavSection } from "@/lib/nav-links"
 
 export default function InternalNavigation() {
   const { openModal } = useAgendaCita()
   const [scrolled, setScrolled] = useState(false)
   const [drawerOpen, setDrawerOpen] = useState(false)
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null)
+  const [openMobileSection, setOpenMobileSection] = useState<string | null>(null)
+  const navRef = useRef<HTMLElement>(null)
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -24,14 +21,36 @@ export default function InternalNavigation() {
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
-  const handleNavClick = () => setDrawerOpen(false)
+  const handleNavClick = () => {
+    setDrawerOpen(false)
+    setOpenDropdown(null)
+    setOpenMobileSection(null)
+  }
 
   useEffect(() => {
     document.body.style.overflow = drawerOpen ? "hidden" : ""
-    return () => {
-      document.body.style.overflow = ""
-    }
+    return () => { document.body.style.overflow = "" }
   }, [drawerOpen])
+
+  useEffect(() => {
+    if (!openDropdown) return
+    const handleClick = (e: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(e.target as Node)) {
+        setOpenDropdown(null)
+      }
+    }
+    document.addEventListener("click", handleClick)
+    return () => document.removeEventListener("click", handleClick)
+  }, [openDropdown])
+
+  const handleMouseEnter = (label: string) => {
+    if (closeTimer.current) clearTimeout(closeTimer.current)
+    setOpenDropdown(label)
+  }
+
+  const handleMouseLeave = () => {
+    closeTimer.current = setTimeout(() => setOpenDropdown(null), 150)
+  }
 
   return (
     <>
@@ -43,6 +62,7 @@ export default function InternalNavigation() {
       </a>
 
       <header
+        ref={navRef}
         className={`fixed top-0 left-0 right-0 z-30 transition-all duration-300 ${
           scrolled
             ? "nav-scrolled"
@@ -53,11 +73,7 @@ export default function InternalNavigation() {
           className="max-w-7xl mx-auto px-5 lg:px-8 flex items-center justify-between h-16 lg:h-18"
           aria-label="Navegación principal"
         >
-          {/* Logo → home */}
-          <Link
-            href="/"
-            className="flex items-center gap-3 leading-none"
-          >
+          <Link href="/" className="flex items-center gap-3 leading-none">
             <Image
               src="/images/isotipo-dr-hernan-vazquez-reumatologo.webp"
               alt="Dr. Hernán Vázquez — Reumatólogo en Monterrey"
@@ -75,18 +91,26 @@ export default function InternalNavigation() {
             </span>
           </Link>
 
-          {/* Desktop Links */}
-          <ul className="hidden lg:flex items-center gap-7">
-            {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="nav-link text-sm font-medium text-midnight/80 transition-colors hover:text-primary"
-                >
-                  {link.label}
-                </Link>
-              </li>
+          {/* Desktop Mega Menu */}
+          <ul className="hidden lg:flex items-center gap-1">
+            {NAV_SECTIONS.map((section) => (
+              <DesktopDropdown
+                key={section.label}
+                section={section}
+                isOpen={openDropdown === section.label}
+                onMouseEnter={() => handleMouseEnter(section.label)}
+                onMouseLeave={handleMouseLeave}
+                onClick={handleNavClick}
+              />
             ))}
+            <li>
+              <Link
+                href="/#contacto"
+                className="nav-link text-sm font-medium px-3 py-2 text-midnight/80 transition-colors hover:text-primary"
+              >
+                Contacto
+              </Link>
+            </li>
           </ul>
 
           {/* Desktop CTA */}
@@ -96,21 +120,8 @@ export default function InternalNavigation() {
             aria-label="Agendar cita"
             className="hidden lg:inline-flex items-center gap-2 bg-primary text-white text-sm font-semibold px-4 py-2 rounded-full cta-primary"
           >
-            <svg
-              width="15"
-              height="15"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <rect x="3" y="4" width="18" height="18" rx="2" />
-              <line x1="16" y1="2" x2="16" y2="6" />
-              <line x1="8" y1="2" x2="8" y2="6" />
-              <line x1="3" y1="10" x2="21" y2="10" />
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <rect x="3" y="4" width="18" height="18" rx="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" />
             </svg>
             Agendar cita
           </button>
@@ -122,16 +133,7 @@ export default function InternalNavigation() {
             className="lg:hidden p-2 rounded-md text-midnight"
             aria-label="Abrir menú"
           >
-            <svg
-              width="22"
-              height="22"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              aria-hidden="true"
-            >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
               <line x1="3" y1="6" x2="21" y2="6" />
               <line x1="3" y1="12" x2="21" y2="12" />
               <line x1="3" y1="18" x2="21" y2="18" />
@@ -149,86 +151,66 @@ export default function InternalNavigation() {
 
       {/* Mobile Drawer */}
       <div
-        className={`fixed top-0 right-0 bottom-0 w-72 bg-white z-50 flex flex-col transition-transform duration-300 ${
+        className={`fixed top-0 right-0 bottom-0 w-80 bg-white z-50 flex flex-col transition-transform duration-300 overflow-y-auto ${
           drawerOpen ? "translate-x-0" : "translate-x-full"
         }`}
         role="dialog"
         aria-modal="true"
         aria-label="Menú de navegación"
       >
-        <div className="flex items-center justify-between px-6 h-16 border-b border-gray-100">
-          <span className="font-bold text-navy text-sm">
-            Dr. Hernán Vázquez
-          </span>
+        <div className="flex items-center justify-between px-6 h-16 border-b border-gray-100 flex-shrink-0">
+          <span className="font-bold text-navy text-sm">Dr. Hernán Vázquez</span>
           <button
             type="button"
             onClick={() => setDrawerOpen(false)}
             className="p-1 text-gray-500"
             aria-label="Cerrar menú"
           >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              aria-hidden="true"
-            >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
               <line x1="18" y1="6" x2="6" y2="18" />
               <line x1="6" y1="6" x2="18" y2="18" />
             </svg>
           </button>
         </div>
 
-        <ul className="flex flex-col px-6 py-6 gap-5">
-          <li>
-            <Link
-              href="/"
+        <div className="flex-1 px-5 py-5 space-y-1">
+          <Link
+            href="/"
+            onClick={handleNavClick}
+            className="block px-3 py-2.5 text-base font-medium text-midnight/80 hover:text-primary transition-colors"
+          >
+            Inicio
+          </Link>
+          {NAV_SECTIONS.map((section) => (
+            <MobileSection
+              key={section.label}
+              section={section}
+              isOpen={openMobileSection === section.label}
+              onToggle={() =>
+                setOpenMobileSection(
+                  openMobileSection === section.label ? null : section.label
+                )
+              }
               onClick={handleNavClick}
-              className="text-base font-medium text-midnight/80 hover:text-primary transition-colors"
-            >
-              Inicio
-            </Link>
-          </li>
-          {NAV_LINKS.map((link) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                onClick={handleNavClick}
-                className="text-base font-medium text-midnight/80 hover:text-primary transition-colors"
-              >
-                {link.label}
-              </Link>
-            </li>
+            />
           ))}
-        </ul>
+          <Link
+            href="/#contacto"
+            onClick={handleNavClick}
+            className="block px-3 py-2.5 text-base font-medium text-midnight/80 hover:text-primary transition-colors"
+          >
+            Contacto
+          </Link>
+        </div>
 
-        <div className="px-6 pb-8 mt-auto">
+        <div className="px-5 pb-6 pt-3 border-t border-gray-100 flex-shrink-0">
           <button
             type="button"
-            onClick={() => {
-              handleNavClick()
-              openModal()
-            }}
+            onClick={() => { handleNavClick(); openModal() }}
             className="flex items-center justify-center gap-2 bg-primary text-white font-semibold py-3 rounded-full cta-primary w-full"
           >
-            <svg
-              width="17"
-              height="17"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <rect x="3" y="4" width="18" height="18" rx="2" />
-              <line x1="16" y1="2" x2="16" y2="6" />
-              <line x1="8" y1="2" x2="8" y2="6" />
-              <line x1="3" y1="10" x2="21" y2="10" />
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <rect x="3" y="4" width="18" height="18" rx="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" />
             </svg>
             Agendar cita
           </button>
@@ -241,5 +223,182 @@ export default function InternalNavigation() {
         </div>
       </div>
     </>
+  )
+}
+
+/* ─── Desktop dropdown ─── */
+
+function DesktopDropdown({
+  section,
+  isOpen,
+  onMouseEnter,
+  onMouseLeave,
+  onClick,
+}: {
+  section: NavSection
+  isOpen: boolean
+  onMouseEnter: () => void
+  onMouseLeave: () => void
+  onClick: () => void
+}) {
+  const isSingle = section.children.length === 1
+
+  return (
+    <li
+      className="relative"
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
+      {isSingle ? (
+        <Link
+          href={section.href}
+          onClick={onClick}
+          className="nav-link text-sm font-medium px-3 py-2 text-midnight/80 transition-colors hover:text-primary"
+        >
+          {section.label}
+        </Link>
+      ) : (
+        <button
+          type="button"
+          className="nav-link text-sm font-medium px-3 py-2 text-midnight/80 transition-colors hover:text-primary inline-flex items-center gap-1"
+          aria-expanded={isOpen}
+        >
+          {section.label}
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className={`transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+            aria-hidden="true"
+          >
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </button>
+      )}
+
+      {!isSingle && (
+        <div
+          className={`absolute top-full left-1/2 -translate-x-1/2 pt-2 transition-all duration-200 ${
+            isOpen
+              ? "opacity-100 visible translate-y-0"
+              : "opacity-0 invisible -translate-y-1"
+          }`}
+        >
+          <div className="bg-white rounded-xl shadow-xl border border-gray-100 py-2 min-w-[260px]">
+            <div className="px-4 py-1.5 mb-1">
+              <Link
+                href={section.href}
+                onClick={onClick}
+                className="text-xs font-semibold text-primary uppercase tracking-wider hover:underline"
+              >
+                Ver todo: {section.label}
+              </Link>
+            </div>
+            {section.children.map((child) => (
+              <Link
+                key={child.href}
+                href={child.href}
+                onClick={onClick}
+                className="block px-4 py-2.5 hover:bg-light-blue/40 transition-colors"
+              >
+                <span className="text-sm font-medium text-navy">{child.label}</span>
+                {child.description && (
+                  <span className="block text-xs text-muted mt-0.5">{child.description}</span>
+                )}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
+    </li>
+  )
+}
+
+/* ─── Mobile expandable section ─── */
+
+function MobileSection({
+  section,
+  isOpen,
+  onToggle,
+  onClick,
+}: {
+  section: NavSection
+  isOpen: boolean
+  onToggle: () => void
+  onClick: () => void
+}) {
+  const isSingle = section.children.length === 1
+
+  if (isSingle) {
+    return (
+      <Link
+        href={section.href}
+        onClick={onClick}
+        className="block px-3 py-2.5 text-base font-medium text-midnight/80 hover:text-primary transition-colors"
+      >
+        {section.label}
+      </Link>
+    )
+  }
+
+  return (
+    <div>
+      <button
+        type="button"
+        onClick={onToggle}
+        className="flex items-center justify-between w-full px-3 py-2.5 text-base font-medium text-midnight/80 hover:text-primary transition-colors"
+        aria-expanded={isOpen}
+      >
+        {section.label}
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className={`transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+          aria-hidden="true"
+        >
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </button>
+
+      <div
+        className={`overflow-hidden transition-all duration-250 ${
+          isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="pl-5 pb-2 space-y-0.5">
+          <Link
+            href={section.href}
+            onClick={onClick}
+            className="block px-3 py-1.5 text-xs font-semibold text-primary uppercase tracking-wider"
+          >
+            Ver todo
+          </Link>
+          {section.children.map((child) => (
+            <Link
+              key={child.href}
+              href={child.href}
+              onClick={onClick}
+              className="block px-3 py-2 text-sm text-midnight/70 hover:text-primary transition-colors"
+            >
+              {child.label}
+              {child.description && (
+                <span className="block text-xs text-muted mt-0.5">{child.description}</span>
+              )}
+            </Link>
+          ))}
+        </div>
+      </div>
+    </div>
   )
 }

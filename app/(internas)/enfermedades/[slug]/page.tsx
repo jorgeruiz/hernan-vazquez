@@ -200,12 +200,6 @@ export default async function EnfermedadPage({ params }: Props) {
             >
               CARE Medical Hub →
             </Link>
-            <Link
-              href="/consulta-en-linea"
-              className="text-primary font-semibold text-sm hover:underline"
-            >
-              Consulta en línea →
-            </Link>
           </div>
         </section>
       </article>

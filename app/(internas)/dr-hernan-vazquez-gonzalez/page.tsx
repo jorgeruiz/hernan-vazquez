@@ -189,24 +189,6 @@ export default function DoctorPage() {
           </div>
         </section>
 
-        {/* Consulta en línea */}
-        <section className="mt-12">
-          <h2 className="text-2xl font-bold text-navy mb-4">
-            Consulta en línea
-          </h2>
-          <p className="text-base text-midnight/80 leading-relaxed">
-            El Dr. Vázquez González ofrece consulta de reumatología por
-            videollamada con cobertura en toda la República Mexicana. Ideal
-            para pacientes fuera de Monterrey o con dificultad para desplazarse.
-          </p>
-          <Link
-            href="/consulta-en-linea"
-            className="inline-block mt-4 text-primary font-semibold text-sm hover:underline"
-          >
-            Más información sobre la consulta en línea →
-          </Link>
-        </section>
-
         {/* Enfermedades */}
         <section className="mt-12">
           <h2 className="text-2xl font-bold text-navy mb-6">

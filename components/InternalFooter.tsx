@@ -14,7 +14,6 @@ const QUICK_LINKS = [
   { label: "Dr. Hernán Vázquez González", href: "/dr-hernan-vazquez-gonzalez" },
   { label: "Hospital Christus Muguerza Sur", href: "/consultorios/christus-muguerza-sur" },
   { label: "CARE Medical Hub", href: "/consultorios/care-medical-hub" },
-  { label: "Consulta en línea", href: "/consulta-en-linea" },
 ]
 
 export default function InternalFooter() {

@@ -225,20 +225,3 @@ export function buildBreadcrumbSchema(
   }
 }
 
-export function buildTelemedicineSchema() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "MedicalProcedure",
-    name: "Consulta de Reumatología por Videollamada",
-    description:
-      "Consulta médica reumatológica a distancia mediante videollamada. Cobertura en toda la República Mexicana.",
-    url: `${BASE_URL}/consulta-en-linea`,
-    procedureType: "Noninvasive",
-    howPerformed: "Videollamada",
-    provider: doctorReference,
-    areaServed: {
-      "@type": "Country",
-      name: "México",
-    },
-  }
-}
