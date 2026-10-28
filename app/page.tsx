@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 import FAQAccordion from "@/components/FAQAccordion"
 import TestimonialCarousel from "@/components/TestimonialCarousel"
 import { JsonLd } from "@/components/JsonLd"
@@ -9,18 +10,18 @@ const WA_URL =
   "https://wa.me/528125656698?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita%20con%20el%20Dr.%20V%C3%A1zquez."
 
 const CONDITIONS = [
-  "Artritis reumatoide",
-  "Lupus eritematoso sistémico",
-  "Osteoporosis",
-  "Fibromialgia",
-  "Espondilitis anquilosante",
-  "Síndrome de Sjögren",
-  "Artritis psoriásica",
-  "Vasculitis",
-  "Artrosis (osteoartritis)",
-  "Dolor de hombro",
-  "Gota",
-  "Hernias de disco",
+  { label: "Artritis reumatoide", slug: "artritis-reumatoide" },
+  { label: "Lupus eritematoso sistémico", slug: "lupus" },
+  { label: "Osteoporosis", slug: "osteoporosis" },
+  { label: "Fibromialgia", slug: "fibromialgia" },
+  { label: "Espondilitis anquilosante", slug: "espondilitis-anquilosante" },
+  { label: "Síndrome de Sjögren", slug: null },
+  { label: "Artritis psoriásica", slug: null },
+  { label: "Vasculitis", slug: null },
+  { label: "Artrosis (osteoartritis)", slug: "artrosis" },
+  { label: "Dolor de hombro", slug: null },
+  { label: "Gota", slug: "gota" },
+  { label: "Hernias de disco", slug: null },
 ]
 
 const CREDENTIALS = [
@@ -246,9 +247,15 @@ export default function HomePage() {
               </h3>
               <ul className="grid grid-cols-2 gap-2">
                 {CONDITIONS.map((cond) => (
-                  <li key={cond} className="flex items-start gap-2 text-sm text-midnight/80">
+                  <li key={cond.label} className="flex items-start gap-2 text-sm text-midnight/80">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 flex-shrink-0" />
-                    {cond}
+                    {cond.slug ? (
+                      <Link href={`/enfermedades/${cond.slug}`} className="hover:text-primary transition-colors">
+                        {cond.label}
+                      </Link>
+                    ) : (
+                      cond.label
+                    )}
                   </li>
                 ))}
               </ul>
@@ -269,7 +276,7 @@ export default function HomePage() {
                   </svg>
                 ),
                 label: "Consulta presencial",
-                detail: "Centro Médico Muguerza Hospital Sur, Monterrey",
+                detail: "Christus Muguerza Sur y CARE Medical Hub, Monterrey",
               },
               {
                 icon: (
@@ -660,19 +667,25 @@ export default function HomePage() {
             </div>
 
             <div>
-              <p className="text-white text-sm font-semibold mb-4">Navegación</p>
+              <p className="text-white text-sm font-semibold mb-4">Páginas</p>
               <ul className="space-y-2">
                 {[
-                  { label: "Servicios", href: "#servicios" },
-                  { label: "Dr. Vázquez", href: "#autoridad" },
-                  { label: "Testimonios", href: "#testimonios" },
+                  { label: "Dr. Vázquez González", href: "/dr-hernan-vazquez-gonzalez" },
+                  { label: "Consultorios", href: "/consultorios" },
+                  { label: "Enfermedades", href: "/enfermedades" },
                   { label: "Preguntas frecuentes", href: "#faqs" },
-                  { label: "Ubicación y contacto", href: "#ubicacion" },
+                  { label: "Contacto", href: "#contacto" },
                 ].map((link) => (
                   <li key={link.href}>
-                    <a href={link.href} className="text-sm hover:text-white transition-colors">
-                      {link.label}
-                    </a>
+                    {link.href.startsWith("#") ? (
+                      <a href={link.href} className="text-sm hover:text-white transition-colors">
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link href={link.href} className="text-sm hover:text-white transition-colors">
+                        {link.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>

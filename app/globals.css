@@ -310,36 +310,6 @@ body {
 }
 
 /* ══════════════════════════════════════════════════════
-   WHATSAPP FLOAT
-══════════════════════════════════════════════════════ */
-
-.whatsapp-float {
-  position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
-  z-index: 50;
-  width: 3.5rem;
-  height: 3.5rem;
-  background: #25D366;
-  border-radius: 9999px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-  transition: transform 160ms var(--ease-out), box-shadow 160ms ease;
-}
-@media (hover: hover) and (pointer: fine) {
-  .whatsapp-float:hover {
-    transform: scale(1.08) translateY(-2px);
-    box-shadow: 0 8px 28px rgba(37, 211, 102, 0.5);
-  }
-}
-.whatsapp-float:active {
-  transform: scale(0.96);
-  transition-duration: 80ms;
-}
-
-/* ══════════════════════════════════════════════════════
    MOBILE DRAWER
 ══════════════════════════════════════════════════════ */
 
