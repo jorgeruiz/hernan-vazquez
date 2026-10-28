@@ -1,21 +1,20 @@
 export const physicianSchema = {
   "@context": "https://schema.org",
   "@type": ["Physician", "MedicalBusiness"],
-  "name": "Dr. Hernán Vázquez — Reumatólogo en Monterrey",
-  "alternateName": "Hernan Vazquez Reumatologo",
-  "description": "Médico reumatólogo certificado con más de 10 años de experiencia. Especialista en tratamiento de artritis, dolor articular y enfermedades reumáticas en Monterrey y San Pedro Garza García.",
+  "name": "Dr. Hernán Vázquez González — Reumatólogo en Monterrey",
+  "alternateName": "Hernan Vazquez Gonzalez Reumatologo",
+  "description": "Médico reumatólogo certificado con 12 años de experiencia como reumatólogo y 14 como internista. Especialista en artritis, lupus, fibromialgia y enfermedades reumáticas en Monterrey.",
   "url": "https://reumamonterrey.com",
   "telephone": "+52-81-8317-8342",
   "medicalSpecialty": "Rheumatology",
   "availableService": [
     { "@type": "MedicalProcedure", "name": "Consulta de Reumatología" },
-    { "@type": "MedicalProcedure", "name": "Consulta por Videollamada" },
     { "@type": "MedicalProcedure", "name": "Tratamiento de Artritis" },
     { "@type": "MedicalProcedure", "name": "Tratamiento de Dolor Articular" }
   ],
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Centro Médico Muguerza Hospital Sur",
+    "streetAddress": "Hospital Christus Muguerza Sur, Piso 6, Consultorio 616",
     "addressLocality": "Monterrey",
     "addressRegion": "Nuevo León",
     "addressCountry": "MX"
@@ -43,18 +42,21 @@ export const physicianSchema = {
     {
       "@type": "EducationalOccupationalCredential",
       "credentialCategory": "degree",
+      "credentialId": "5563127",
       "name": "Médico Cirujano Partero",
       "recognizedBy": { "@type": "EducationalOrganization", "name": "Universidad Autónoma de Nuevo León (UANL)" }
     },
     {
       "@type": "EducationalOccupationalCredential",
       "credentialCategory": "degree",
+      "credentialId": "7440332",
       "name": "Medicina Interna",
       "recognizedBy": { "@type": "EducationalOrganization", "name": "Universidad Nacional Autónoma de México (UNAM)" }
     },
     {
       "@type": "EducationalOccupationalCredential",
       "credentialCategory": "degree",
+      "credentialId": "09076347",
       "name": "Reumatología",
       "recognizedBy": { "@type": "EducationalOrganization", "name": "Universidad Nacional Autónoma de México (UNAM)" }
     },
@@ -70,6 +72,10 @@ export const physicianSchema = {
     "name": "Colegio Mexicano de Reumatología",
     "roleName": "Tesorero de Mesa Directiva"
   },
+  "sameAs": [
+    "https://www.doctoralia.com.mx/hernan-vazquez-gonzalez/internista-reumatologo/nuevo-leon",
+    "https://www.topdoctors.mx/doctor/hernan-vazquez-gonzalez/"
+  ],
   "priceRange": "$$",
   "currenciesAccepted": "MXN"
 }
@@ -77,24 +83,29 @@ export const physicianSchema = {
 export const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
-  "name": "Hernán Vázquez",
+  "name": "Hernán Vázquez González",
   "honorificPrefix": "Dr.",
   "jobTitle": "Médico Reumatólogo",
-  "description": "Médico Cirujano Partero egresado de la UANL, especialista en Medicina Interna y Reumatología por la UNAM. Certificado por el Colegio Mexicano de Reumatología. Tesorero de la Mesa Directiva del Colegio Mexicano de Reumatología.",
+  "description": "Médico reumatólogo certificado con 12 años de experiencia. Cirujano Partero egresado de la UANL, especialista en Medicina Interna y Reumatología por la UNAM. Certificado por el Colegio Mexicano de Reumatología. Tesorero de su Mesa Directiva.",
   "url": "https://reumamonterrey.com",
   "telephone": "+52-81-8317-8342",
   "worksFor": {
     "@type": "MedicalBusiness",
-    "name": "Consultorio Dr. Hernán Vázquez",
+    "name": "Consultorio Dr. Hernán Vázquez González",
     "url": "https://reumamonterrey.com"
   },
   "affiliation": [
     { "@type": "Organization", "name": "Colegio Mexicano de Reumatología" },
-    { "@type": "Hospital", "name": "Centro Médico Muguerza Hospital Sur" }
+    { "@type": "Hospital", "name": "Hospital Christus Muguerza Sur" },
+    { "@type": "MedicalClinic", "name": "CARE Medical Hub" }
   ],
   "alumniOf": [
     { "@type": "EducationalOrganization", "name": "Universidad Autónoma de Nuevo León (UANL)" },
     { "@type": "EducationalOrganization", "name": "Universidad Nacional Autónoma de México (UNAM)" }
+  ],
+  "sameAs": [
+    "https://www.doctoralia.com.mx/hernan-vazquez-gonzalez/internista-reumatologo/nuevo-leon",
+    "https://www.topdoctors.mx/doctor/hernan-vazquez-gonzalez/"
   ],
   "knowsLanguage": ["es", "en"],
   "gender": "Male",
@@ -136,10 +147,10 @@ export const faqPageSchema = {
     },
     {
       "@type": "Question",
-      "name": "¿Dónde tiene consultorio el Dr. Hernán Vázquez en Monterrey?",
+      "name": "¿Dónde tiene consultorio el Dr. Hernán Vázquez González en Monterrey?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "El Dr. Hernán Vázquez atiende en el Centro Médico Muguerza Hospital Sur en Monterrey, donde es el único reumatólogo disponible en esa unidad. También tiene cobertura en la zona de San Pedro Garza García. Para citas: Tel. 81 8317 8342 / Urgencias: 81 2040 5582."
+        "text": "El Dr. Hernán Vázquez González atiende en dos consultorios: Hospital Christus Muguerza Sur (Piso 6, Consultorio 616) en la zona sur de Monterrey, donde es el único reumatólogo, y CARE Medical Hub (Bolivia 103, Piso 12, Consultorio 14) en Balcones de Galerías. Para citas: Tel. 81 8317 8342 / WhatsApp: 81 2565 6698."
       }
     },
     {
@@ -152,10 +163,10 @@ export const faqPageSchema = {
     },
     {
       "@type": "Question",
-      "name": "¿Qué credenciales tiene el Dr. Hernán Vázquez?",
+      "name": "¿Qué credenciales tiene el Dr. Hernán Vázquez González?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "El Dr. Vázquez es médico cirujano partero egresado de la UANL, con especialidad en medicina interna y reumatología por la UNAM, y está certificado por el Colegio Mexicano de Reumatología. Actualmente se desempeña como tesorero de la mesa directiva del Colegio Mexicano de Reumatología y es el único reumatólogo en el Centro Médico Muguerza Hospital Sur."
+        "text": "El Dr. Vázquez González es médico cirujano partero egresado de la UANL, con especialidad en medicina interna y reumatología por la UNAM, y está certificado por el Colegio Mexicano de Reumatología (cédulas 5563127, 7440332, 09076347). Actualmente se desempeña como tesorero de la mesa directiva del CMR. Tiene 12 años de experiencia como reumatólogo y 14 como internista."
       }
     },
     {
@@ -168,10 +179,10 @@ export const faqPageSchema = {
     },
     {
       "@type": "Question",
-      "name": "¿Cómo es el proceso de atención con el Dr. Hernán Vázquez?",
+      "name": "¿Cómo es el proceso de atención con el Dr. Hernán Vázquez González?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "El Dr. Vázquez ofrece atención personalizada con acompañamiento antes de la consulta, durante la consulta —con tiempo suficiente para explicar el diagnóstico y resolver dudas— y seguimiento post-consulta para monitorear la evolución de la enfermedad. Este modelo de atención continua lo distingue del esquema estándar de consulta de 15 minutos."
+        "text": "El Dr. Vázquez González ofrece atención personalizada con acompañamiento antes de la consulta, durante la consulta —con tiempo suficiente para explicar el diagnóstico y resolver dudas— y seguimiento post-consulta para monitorear la evolución de la enfermedad. Este modelo de atención continua lo distingue del esquema estándar de consulta de 15 minutos."
       }
     }
   ]
@@ -182,19 +193,10 @@ export const serviceSchemas = [
     "@context": "https://schema.org",
     "@type": "MedicalTherapy",
     "name": "Consulta de Reumatología en Monterrey",
-    "description": "Valoración, diagnóstico y tratamiento de enfermedades reumáticas. Consulta presencial con el Dr. Hernán Vázquez, reumatólogo certificado con más de 10 años de experiencia en Monterrey.",
+    "description": "Valoración, diagnóstico y tratamiento de enfermedades reumáticas. Consulta presencial con el Dr. Hernán Vázquez González, reumatólogo certificado con 12 años de experiencia en Monterrey.",
     "relevantSpecialty": "Rheumatology",
-    "provider": { "@type": "Physician", "name": "Dr. Hernán Vázquez", "url": "https://reumamonterrey.com" },
+    "provider": { "@type": "Physician", "name": "Dr. Hernán Vázquez González", "url": "https://reumamonterrey.com" },
     "areaServed": ["Monterrey", "San Pedro Garza García"]
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "MedicalTherapy",
-    "name": "Consulta de Reumatología por Videollamada",
-    "description": "Consulta médica reumatológica a distancia mediante videollamada. Ideal para pacientes fuera de Monterrey o con dificultad para desplazarse.",
-    "relevantSpecialty": "Rheumatology",
-    "provider": { "@type": "Physician", "name": "Dr. Hernán Vázquez", "url": "https://reumamonterrey.com" },
-    "areaServed": "México"
   },
   {
     "@context": "https://schema.org",
@@ -202,7 +204,7 @@ export const serviceSchemas = [
     "name": "Tratamiento de Artritis y Dolor Articular",
     "description": "Diagnóstico y manejo integral de artritis reumatoide, osteoartritis, gota, espondilitis y otras causas de dolor articular crónico.",
     "relevantSpecialty": "Rheumatology",
-    "provider": { "@type": "Physician", "name": "Dr. Hernán Vázquez", "url": "https://reumamonterrey.com" },
+    "provider": { "@type": "Physician", "name": "Dr. Hernán Vázquez González", "url": "https://reumamonterrey.com" },
     "areaServed": ["Monterrey", "San Pedro Garza García", "Zona Citrícola de Nuevo León"]
   }
 ]

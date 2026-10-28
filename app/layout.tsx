@@ -21,52 +21,40 @@ const jakarta = Plus_Jakarta_Sans({
 })
 
 export const metadata: Metadata = {
-  title: "Reumatólogo en Monterrey | Dr. Hernán Vázquez",
+  title: "Reumatólogo en Monterrey | Dr. Hernán Vázquez González",
   description:
-    "Médico reumatólogo certificado en Monterrey con más de 10 años de experiencia. Especialista en artritis, lupus, fibromialgia y enfermedades autoinmunes. Consulta presencial y videollamada. Tel. 81 8317 8342.",
+    "Médico reumatólogo certificado en Monterrey con 12 años de experiencia. Especialista en artritis, lupus, fibromialgia y enfermedades autoinmunes. Cédulas 5563127, 7440332, 09076347. Tel. 81 8317 8342.",
   keywords: [
     "reumatólogo en Monterrey",
+    "reumatólogo Hernán Vázquez González",
     "especialista en artritis Monterrey",
     "médico lupus Monterrey",
     "tratamiento artritis Monterrey",
-    "reumatólogo Muguerza",
+    "reumatólogo Muguerza Sur",
+    "reumatólogo zona sur Monterrey",
     "médico dolor articular Monterrey",
     "fibromialgia Monterrey",
   ],
-  authors: [{ name: "Dr. Hernán Vázquez" }],
-  creator: "Dr. Hernán Vázquez",
+  authors: [{ name: "Dr. Hernán Vázquez González" }],
+  creator: "Dr. Hernán Vázquez González",
   metadataBase: new URL("https://reumamonterrey.com"),
   alternates: {
     canonical: "https://reumamonterrey.com/",
-    languages: {
-      es: "https://reumamonterrey.com/",
-      en: "https://reumamonterrey.com/en/",
-    },
   },
   openGraph: {
-    siteName: "Dr. Hernán Vázquez — Reumatólogo Monterrey",
+    siteName: "Dr. Hernán Vázquez González — Reumatólogo Monterrey",
     type: "website",
     locale: "es_MX",
-    alternateLocale: ["en_US"],
-    title: "Reumatólogo en Monterrey | Dr. Hernán Vázquez",
+    title: "Reumatólogo en Monterrey | Dr. Hernán Vázquez González",
     description:
-      "Médico reumatólogo certificado en Monterrey. Artritis, lupus, fibromialgia y más. Consulta presencial y videollamada.",
+      "Médico reumatólogo certificado en Monterrey. 12 años de experiencia. Artritis, lupus, fibromialgia y más.",
     url: "https://reumamonterrey.com/",
-    images: [
-      {
-        url: "/og-default.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Dr. Hernán Vázquez — Reumatólogo Monterrey",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Reumatólogo en Monterrey | Dr. Hernán Vázquez",
+    title: "Reumatólogo en Monterrey | Dr. Hernán Vázquez González",
     description:
-      "Médico reumatólogo certificado con más de 10 años de experiencia en Monterrey.",
-    images: ["/og-default.jpg"],
+      "Médico reumatólogo certificado con 12 años de experiencia en Monterrey.",
   },
   robots: {
     index: true,

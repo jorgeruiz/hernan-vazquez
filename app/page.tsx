@@ -93,10 +93,9 @@ export default function HomePage() {
             </h1>
 
             <p className="hero-subtext text-blue-100/90 text-base md:text-lg leading-relaxed mb-10 max-w-xl">
-              El Dr. Hernán Vázquez es médico reumatólogo certificado con más de 10 años de
-              experiencia en el diagnóstico y tratamiento de enfermedades del sistema
-              musculoesquelético. Atiende en el Centro Médico Muguerza Hospital Sur
-              y ofrece consulta por videollamada a nivel nacional.
+              El Dr. Hernán Vázquez González es médico reumatólogo certificado con 12 años de
+              experiencia como reumatólogo y 14 como internista. Atiende en el Hospital Christus
+              Muguerza Sur y en CARE Medical Hub en Monterrey.
             </p>
 
             <div className="hero-cta flex flex-col sm:flex-row gap-4">
@@ -118,7 +117,7 @@ export default function HomePage() {
             </div>
 
             <div className="hero-trust flex flex-wrap gap-x-6 gap-y-2 mt-10">
-              {["+10 años de experiencia", "Certificado CMR", "Muguerza Hospital Sur"].map(
+              {["12 años de experiencia", "Certificado CMR", "Muguerza Hospital Sur"].map(
                 (item) => (
                   <span key={item} className="flex items-center gap-2 text-blue-200 text-sm">
                     <span className="w-1.5 h-1.5 rounded-full bg-blue-300 flex-shrink-0" />
@@ -143,7 +142,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-5 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 lg:divide-x lg:divide-white/10">
             {[
-              { value: "+10 años", label: "de experiencia clínica en reumatología" },
+              { value: "12 años", label: "de experiencia como reumatólogo" },
               { value: "Único", label: "reumatólogo en Muguerza Hospital Sur" },
               { value: "CMR", label: "Certificado por el Colegio Mexicano de Reumatología" },
               { value: "UNAM", label: "Especialidades en Medicina Interna y Reumatología" },
@@ -172,7 +171,7 @@ export default function HomePage() {
               Condiciones que tratamos
             </h2>
             <p className="text-muted text-base md:text-lg leading-relaxed">
-              Más de 10 años de experiencia en el diagnóstico y tratamiento de enfermedades
+              12 años de experiencia en el diagnóstico y tratamiento de enfermedades
               reumáticas complejas. Desde la primera consulta hasta el seguimiento a largo
               plazo, usted tendrá el tiempo y la atención que merece.
             </p>
@@ -309,15 +308,15 @@ export default function HomePage() {
               <div className="relative aspect-[4/5] max-w-sm mx-auto lg:max-w-none rounded-2xl overflow-hidden">
                 <Image
                   src="/images/about-doctor.jpg"
-                  alt="Dr. Hernán Vázquez, Reumatólogo con más de 10 años de experiencia en Monterrey"
+                  alt="Dr. Hernán Vázquez González, Reumatólogo con 12 años de experiencia en Monterrey"
                   fill
                   className="object-cover object-top"
                   sizes="(max-width: 1024px) 80vw, 50vw"
                 />
               </div>
               <div className="absolute -bottom-4 -right-4 lg:-right-8 bg-primary text-white rounded-xl px-5 py-4 shadow-xl">
-                <p className="text-2xl font-bold leading-none">+10</p>
-                <p className="text-xs text-blue-200 mt-0.5">años de experiencia</p>
+                <p className="text-2xl font-bold leading-none">12</p>
+                <p className="text-xs text-blue-200 mt-0.5">años como reumatólogo</p>
               </div>
             </div>
 
@@ -326,18 +325,18 @@ export default function HomePage() {
                 Acerca del especialista
               </p>
               <h2 className="heading-display text-3xl md:text-4xl font-bold text-white mb-6">
-                Dr. Hernán Vázquez
+                Dr. Hernán Vázquez González
                 <br />
                 <span className="text-blue-300">Médico Reumatólogo</span>
               </h2>
 
               <p className="text-blue-100/80 leading-relaxed mb-8">
-                El Dr. Hernán Vázquez es médico reumatólogo certificado por el Colegio Mexicano
-                de Reumatología con más de 10 años de experiencia clínica. Egresado como médico
-                cirujano partero de la UANL, realizó sus especialidades en Medicina Interna y
-                Reumatología en la UNAM. Atiende en el Centro Médico Muguerza Hospital Sur,
-                donde es el único reumatólogo disponible, y ofrece también consulta por
-                videollamada para pacientes a nivel nacional.
+                El Dr. Hernán Vázquez González es médico reumatólogo certificado por el Colegio
+                Mexicano de Reumatología con 12 años de experiencia como reumatólogo y 14 como
+                internista. Egresado como médico cirujano partero de la UANL, realizó sus
+                especialidades en Medicina Interna y Reumatología en la UNAM. Atiende en el
+                Hospital Christus Muguerza Sur (único reumatólogo en la zona sur de Monterrey)
+                y en CARE Medical Hub en Balcones de Galerías.
               </p>
 
               <div className="mb-8">
@@ -466,9 +465,9 @@ export default function HomePage() {
                 Consulta en Monterrey
               </h2>
               <p className="text-muted leading-relaxed mb-8">
-                El Dr. Hernán Vázquez atiende en el Centro Médico Muguerza Hospital Sur,
-                donde es el único reumatólogo disponible en esa unidad. También ofrece
-                consulta por videollamada para pacientes en todo el país.
+                El Dr. Hernán Vázquez González atiende en dos consultorios: Hospital Christus
+                Muguerza Sur (único reumatólogo en la zona sur de Monterrey) y CARE Medical
+                Hub en Balcones de Galerías.
               </p>
 
               <div className="space-y-5">
@@ -480,11 +479,13 @@ export default function HomePage() {
                     </svg>
                   </div>
                   <div>
-                    <p className="font-semibold text-midnight text-sm">Consultorio principal</p>
+                    <p className="font-semibold text-midnight text-sm">Consultorios</p>
                     <p className="text-muted text-sm mt-0.5">
-                      Centro Médico Muguerza Hospital Sur
+                      Hospital Christus Muguerza Sur — Piso 6, Cons. 616
                       <br />
-                      Monterrey, Nuevo León, México
+                      CARE Medical Hub — Bolivia 103, Piso 12, Cons. 14
+                      <br />
+                      Monterrey, Nuevo León
                     </p>
                   </div>
                 </div>
@@ -648,13 +649,13 @@ export default function HomePage() {
                 height={74}
                 className="h-12 w-auto mb-3"
               />
-              <p className="text-white font-bold text-base mb-1">Dr. Hernán Vázquez</p>
+              <p className="text-white font-bold text-base mb-1">Dr. Hernán Vázquez González</p>
               <p className="text-primary text-xs font-semibold tracking-widest uppercase mb-4">
                 Médico Reumatólogo
               </p>
               <p className="text-white/50 text-sm leading-relaxed">
                 Especialista en artritis, lupus, fibromialgia y enfermedades autoinmunes.
-                Certificado por el Colegio Mexicano de Reumatología. Más de 10 años de
+                Certificado por el Colegio Mexicano de Reumatología. 12 años de
                 experiencia en Monterrey, Nuevo León.
               </p>
             </div>
@@ -682,11 +683,13 @@ export default function HomePage() {
               <p className="text-white text-sm font-semibold mb-4">Contacto y datos</p>
               <address className="not-italic space-y-3 text-sm">
                 <div>
-                  <span className="text-white/40 text-xs block mb-0.5">Consultorio</span>
+                  <span className="text-white/40 text-xs block mb-0.5">Consultorios</span>
                   <span>
-                    Centro Médico Muguerza Hospital Sur
+                    Christus Muguerza Sur — Piso 6, Cons. 616
                     <br />
-                    Monterrey, Nuevo León, México
+                    CARE Medical Hub — Piso 12, Cons. 14
+                    <br />
+                    Monterrey, N.L.
                   </span>
                 </div>
                 <div>
