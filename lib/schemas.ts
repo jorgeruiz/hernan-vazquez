@@ -139,14 +139,6 @@ export const faqPageSchema = {
     },
     {
       "@type": "Question",
-      "name": "¿El Dr. Hernán Vázquez da consulta por videollamada?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sí, el Dr. Vázquez ofrece consulta presencial y consulta por videollamada. Para agendar, puede contactar directamente por WhatsApp o llamar al consultorio."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "¿Dónde tiene consultorio el Dr. Hernán Vázquez González en Monterrey?",
       "acceptedAnswer": {
         "@type": "Answer",

@@ -19,14 +19,9 @@ const faqs: FAQItem[] = [
       "Un reumatólogo trata enfermedades que afectan articulaciones, huesos, tendones, ligamentos y músculos, incluyendo artritis reumatoide, lupus eritematoso sistémico, osteoporosis, fibromialgia, espondilitis anquilosante, artritis psoriásica, síndrome de Sjögren, vasculitis y artrosis. También maneja condiciones como hernias de disco, gonartrosis, coxartrosis y dolor de hombro de origen articular.",
   },
   {
-    question: "¿El Dr. Hernán Vázquez da consulta por videollamada?",
+    question: "¿Dónde tiene consultorio el Dr. Hernán Vázquez González en Monterrey?",
     answer:
-      "Sí, el Dr. Vázquez ofrece consulta presencial y consulta por videollamada. Para agendar cualquiera de estas modalidades, puede contactar directamente por WhatsApp al 81 8317 8342 o llamar al consultorio.",
-  },
-  {
-    question: "¿Dónde tiene consultorio el Dr. Hernán Vázquez en Monterrey?",
-    answer:
-      "El Dr. Hernán Vázquez atiende en el Centro Médico Muguerza Hospital Sur en Monterrey, donde es el único reumatólogo disponible en esa unidad. También tiene cobertura en la zona de San Pedro Garza García. Para citas: Tel. 81 8317 8342 / Urgencias: 81 2040 5582.",
+      "El Dr. Hernán Vázquez González atiende en dos consultorios: Hospital Christus Muguerza Sur (Piso 6, Consultorio 616), donde es el único reumatólogo en la zona sur de Monterrey, y CARE Medical Hub (Bolivia 103, Piso 12, Consultorio 14) en Balcones de Galerías. Para citas: Tel. 81 8317 8342 / WhatsApp: 81 2565 6698.",
   },
   {
     question: "¿Qué diferencia hay entre artritis y artrosis?",

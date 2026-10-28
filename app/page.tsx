@@ -274,12 +274,12 @@ export default function HomePage() {
               {
                 icon: (
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <polygon points="23 7 16 12 23 17 23 7"/>
-                    <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
                   </svg>
                 ),
-                label: "Videollamada",
-                detail: "Cobertura nacional. Misma calidad de atención",
+                label: "Dos consultorios",
+                detail: "Christus Muguerza Sur y CARE Medical Hub",
               },
             ].map((mode) => (
               <div key={mode.label} className="text-center px-2">
@@ -545,7 +545,7 @@ export default function HomePage() {
                     <p className="text-muted text-sm mt-0.5">
                       Monterrey · San Pedro Garza García ·
                       <br />
-                      Zona Citrícola de N.L. · Videollamada nacional
+                      Zona Citrícola de N.L.
                     </p>
                   </div>
                 </div>
@@ -629,8 +629,7 @@ export default function HomePage() {
           </div>
 
           <p className="mt-8 text-blue-200/60 text-xs">
-            Respondemos en horario de consulta · Lunes a sábado · Consulta presencial y
-            videollamada
+            Respondemos en horario de consulta · Lunes a sábado · Consulta presencial
           </p>
         </div>
       </section>
@@ -709,7 +708,7 @@ export default function HomePage() {
                   <span>
                     Monterrey · San Pedro Garza García
                     <br />
-                    Videollamada nacional
+                    Zona Citrícola de N.L.
                   </span>
                 </div>
               </address>
