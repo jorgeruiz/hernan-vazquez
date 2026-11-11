@@ -203,3 +203,10 @@ Home footer: links a paginas reales (Dr. Vazquez, Consultorios, Enfermedades) + 
 - Articulo de blog publicado: "Síntomas de Artritis Reumatoide que No Debes Ignorar" (/blog/sintomas-de-artritis-reumatoide-que-no-debes-ignorar)
 
 **Aplicado por:** Constructor (publicacion directa)
+
+### 2026-11-11 — CEREBRO-2026-11-11T23-30-14-como-saber-si-tienes-lupus-sintomas-clav
+
+**Cambios aplicados:**
+- Articulo de blog publicado: "¿Cómo Saber si Tienes Lupus? Síntomas Clave en Mujeres" (/blog/como-saber-si-tienes-lupus-sintomas-clave-en-mujeres)
+
+**Aplicado por:** Constructor (publicacion directa)

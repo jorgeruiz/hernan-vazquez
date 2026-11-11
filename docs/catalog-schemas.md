@@ -37,6 +37,7 @@ Code lo lee para saber qué plantillas existen y cómo agregar nuevos ítems.
 - Página: /dr-hernan-vazquez-gonzalez
 - Enfermedades Reumáticas
 - Enfermedades Reumáticas
+- Enfermedades Reumáticas
 
 **Reglas SEO:**
 - Un solo H1 por artículo (= título)
