@@ -5,11 +5,11 @@
 ## Estado actual
 
 **Ultima actualizacion:** 2026-10-27
-**Version del sitio:** 2.1 (P0 resueltos, bootstrap completo)
+**Version del sitio:** 2.2 (blog bootstrap)
 **URL de produccion:** https://reumamonterrey.com
 **Repo:** https://github.com/jorgeruiz/hernan-vazquez
 **Stack:** Next.js 16.2.7 + Tailwind CSS v4 + Vercel
-**Total URLs indexables:** 14
+**Total URLs indexables:** 16+ (crece con cada articulo de blog)
 **Solo consulta presencial** (no videollamada)
 
 ---
@@ -27,6 +27,8 @@
 | `/consultorios/care-medical-hub` | Sede CARE Medical Hub | MedicalClinic, BreadcrumbList |
 | `/enfermedades` | Indice de enfermedades | BreadcrumbList |
 | `/enfermedades/[7 slugs]` | 7 paginas de enfermedad (AEO) | MedicalWebPage+MedicalCondition, FAQPage, BreadcrumbList |
+| `/blog` | Listing de articulos (filtro por categoria) | BreadcrumbList |
+| `/blog/[slug]` | Articulo de blog (MDX) | Article (author, datePublished), BreadcrumbList, OG image dinamica |
 | `/llms.txt` | Resumen para bots IA | N/A |
 | `/opengraph-image` | OG image dinamica (1200x630) | N/A |
 
@@ -76,6 +78,18 @@ Home footer: links a paginas reales (Dr. Vazquez, Consultorios, Enfermedades) + 
 ---
 
 ## Features implementadas
+
+### v2.2 — Blog bootstrap (nov 2026)
+
+- [x] Blog con MDX local: content/blog/[slug].mdx, imagenes en public/blog/[slug]/
+- [x] Frontmatter siguiendo schema de Constructor (titulo, slug, categoria, tags, extracto, imagen_portada, autor, fecha_publicacion)
+- [x] Renderer con remark-gfm, Link para internos, target blank para externos
+- [x] /blog listing con filtro por categoria
+- [x] /blog/[slug] con Article schema, author box, breadcrumbs, OG image dinamica
+- [x] Primer articulo: "Cuando ir al reumatologo" (keyword tier 2, enlaza a 7 paginas de enfermedades)
+- [x] Blog en mega menu (link directo)
+- [x] Entradas automaticas en sitemap
+- [x] docs/catalog-schemas.md creado (modo AGREGAR para Constructor)
 
 ### v2.1 — P0 y bootstrap (oct 2026)
 

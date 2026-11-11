@@ -1,5 +1,6 @@
 import { MetadataRoute } from "next"
 import { getAllSlugs } from "@/lib/enfermedades"
+import { getAllSlugs as getAllBlogSlugs } from "@/lib/blog"
 
 const BASE = "https://reumamonterrey.com"
 
@@ -52,5 +53,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
-  return [...staticPages, ...conditionPages]
+  const blogSlugs = getAllBlogSlugs()
+  const blogPages: MetadataRoute.Sitemap = blogSlugs.length > 0
+    ? [
+        {
+          url: `${BASE}/blog`,
+          lastModified: now,
+          changeFrequency: "weekly" as const,
+          priority: 0.7,
+        },
+        ...blogSlugs.map((slug) => ({
+          url: `${BASE}/blog/${slug}`,
+          lastModified: now,
+          changeFrequency: "monthly" as const,
+          priority: 0.6,
+        })),
+      ]
+    : []
+
+  return [...staticPages, ...conditionPages, ...blogPages]
 }

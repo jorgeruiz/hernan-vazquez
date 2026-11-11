@@ -39,6 +39,17 @@ export const NAV_SECTIONS: NavSection[] = [
     ],
   },
   {
+    label: "Blog",
+    href: "/blog",
+    children: [
+      {
+        label: "Blog",
+        href: "/blog",
+        description: "Artículos sobre reumatología",
+      },
+    ],
+  },
+  {
     label: "Enfermedades",
     href: "/enfermedades",
     children: [
