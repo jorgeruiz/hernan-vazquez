@@ -35,6 +35,7 @@ Code lo lee para saber qué plantillas existen y cómo agregar nuevos ítems.
 - Especialidad: Reumatólogo certificado por el Colegio Mexicano de Reumatología
 - Cédulas: 5563127, 7440332, 09076347
 - Página: /dr-hernan-vazquez-gonzalez
+- Enfermedades Reumáticas
 
 **Reglas SEO:**
 - Un solo H1 por artículo (= título)

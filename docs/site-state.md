@@ -189,3 +189,10 @@ Home footer: links a paginas reales (Dr. Vazquez, Consultorios, Enfermedades) + 
 | 2026-10-27 | `b10b230` | P0: OG image, hreflang, nombre completo, experiencia, schemas con sameAs/cedulas |
 | 2026-10-27 | `81805f2` | Eliminar todas las menciones de videollamada |
 | 2026-10-27 | `871c9fd` | Enlazar enfermedades del home, footer con links reales, cleanup CSS/imagen |
+
+### 2026-11-11 — CEREBRO-2026-11-11T22-38-31-como-saber-si-tienes-lupus-sintomas-clav
+
+**Cambios aplicados:**
+- Articulo de blog publicado: "¿Cómo Saber si Tienes Lupus? Síntomas Clave en Mujeres" (/blog/como-saber-si-tienes-lupus-sintomas-clave-en-mujeres)
+
+**Aplicado por:** Constructor (publicacion directa)
