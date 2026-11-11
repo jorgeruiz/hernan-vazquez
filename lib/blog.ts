@@ -34,8 +34,13 @@ export function getAllPosts(): BlogPost[] {
       const { data, content } = matter(raw)
       const rt = readingTime(content)
 
+      // gray-matter parses YAML dates as Date objects — normalize to string
+      const fecha = data.fecha_publicacion instanceof Date
+        ? data.fecha_publicacion.toISOString().slice(0, 10)
+        : String(data.fecha_publicacion)
+
       return {
-        frontmatter: data as BlogFrontmatter,
+        frontmatter: { ...data, fecha_publicacion: fecha } as BlogFrontmatter,
         content,
         readingTime: `${Math.ceil(rt.minutes)} min de lectura`,
       }

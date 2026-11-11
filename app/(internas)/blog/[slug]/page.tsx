@@ -7,6 +7,16 @@ import { JsonLd } from "@/components/JsonLd"
 import { buildArticleSchema } from "@/lib/blog-schemas"
 import { getAllSlugs, getPostBySlug } from "@/lib/blog"
 
+const MONTHS = [
+  "enero", "febrero", "marzo", "abril", "mayo", "junio",
+  "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre",
+]
+
+function formatDate(dateStr: string): string {
+  const [y, m, d] = dateStr.split("-").map(Number)
+  return `${d} de ${MONTHS[m - 1]} de ${y}`
+}
+
 interface Props {
   params: Promise<{ slug: string }>
 }
@@ -61,13 +71,9 @@ export default async function BlogPostPage({ params }: Props) {
               {fm.categoria}
             </span>
             <span>{readingTime}</span>
-            <span>
-              {new Date(fm.fecha_publicacion).toLocaleDateString("es-MX", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
-            </span>
+            <time dateTime={fm.fecha_publicacion}>
+              {formatDate(fm.fecha_publicacion)}
+            </time>
           </div>
 
           <h1 className="text-3xl sm:text-4xl font-bold text-navy heading-display">
