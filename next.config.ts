@@ -56,6 +56,7 @@ const cspDirectives: Record<string, string[]> = {
     "https://n8n-n8n.6lk5jx.easypanel.host", // n8n webhooks (disponibilidad + reservar cita)
     "https://www.google.com",               // Google Ads remarketing hits
     "https://www.facebook.com",              // Meta Pixel event hits
+    "https://graph.facebook.com",            // Meta Graph API (IWL, event config)
     "https://*.ecs.us-east-2.on.aws",        // Meta Conversions API (server-side events)
     "https://*.cloud.run",                    // Meta Conversions API (Cloud Run endpoint)
   ],
