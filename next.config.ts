@@ -19,6 +19,7 @@ const cspDirectives: Record<string, string[]> = {
     "https://elevenlabs.io",
     "https://unpkg.com", // ElevenLabs widget CDN alternativo
     "https://connect.facebook.net",    // Meta Pixel (fbevents.js)
+    "https://www.facebook.com",        // Meta Pixel IWL (Instant Website Loading)
   ],
   "style-src":       [
     "'self'",
@@ -55,6 +56,8 @@ const cspDirectives: Record<string, string[]> = {
     "https://n8n-n8n.6lk5jx.easypanel.host", // n8n webhooks (disponibilidad + reservar cita)
     "https://www.google.com",               // Google Ads remarketing hits
     "https://www.facebook.com",              // Meta Pixel event hits
+    "https://*.ecs.us-east-2.on.aws",        // Meta Conversions API (server-side events)
+    "https://*.cloud.run",                    // Meta Conversions API (Cloud Run endpoint)
   ],
   "media-src":       ["'self'", "https://*.elevenlabs.io"], // audio del bot (todos los dominios regionales)
   "frame-src":       [
