@@ -308,6 +308,14 @@ export default function AgendaCitaModal() {
         gtm('agendar_confirmada', ev)
         gtm(form.sede === 'CARE' ? 'cita_care' : 'cita_muguerza', ev)
 
+        // Meta Pixel — Schedule event on confirmed appointment
+        if (typeof window !== 'undefined' && typeof (window as unknown as { fbq?: (...args: unknown[]) => void }).fbq === 'function') {
+          ;(window as unknown as { fbq: (...args: unknown[]) => void }).fbq('track', 'Schedule', {
+            content_name: SEDES[form.sede!].nombre,
+            content_category: form.sede,
+          })
+        }
+
       } else if (data.ocupado || data.slotOcupado || data.error === 'ocupado') {
         // Slot already taken — go back to step 3 and reload
         setForm(f => ({ ...f, slot: null }))

@@ -3,11 +3,12 @@
 import { useState, useEffect } from 'react'
 import { useWhatsAppForm } from './WhatsAppFormContext'
 
-// Tipado mínimo para gtag / dataLayer
+// Tipado mínimo para gtag / dataLayer / fbq
 declare global {
   interface Window {
     dataLayer?: Record<string, unknown>[]
     gtag?: (...args: unknown[]) => void
+    fbq?: (...args: unknown[]) => void
   }
 }
 
@@ -60,6 +61,12 @@ export default function WhatsAppWidget() {
     })
     // Google Ads: conversión genérica (configura el label en Google Ads)
     window.gtag?.('event', 'conversion', { send_to: 'AW-16494564617' })
+    // Meta Pixel: Lead event
+    if (typeof window.fbq === 'function') {
+      window.fbq('track', 'Lead', {
+        content_name: 'Formulario WhatsApp',
+      })
+    }
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
