@@ -57,6 +57,7 @@ const cspDirectives: Record<string, string[]> = {
     "https://www.google.com",               // Google Ads remarketing hits
     "https://www.facebook.com",              // Meta Pixel event hits
     "https://graph.facebook.com",            // Meta Graph API (IWL, event config)
+    "https://connect.facebook.net",          // Meta Pixel SDK (fetch calls)
     "https://*.ecs.us-east-2.on.aws",        // Meta Conversions API (server-side events)
     "https://*.cloud.run",                    // Meta Conversions API (Cloud Run endpoint)
   ],
@@ -65,6 +66,8 @@ const cspDirectives: Record<string, string[]> = {
     "https://www.google.com",        // Google Maps embed
     "https://maps.google.com",
     "https://www.googletagmanager.com", // GTM noscript iframe
+    "https://www.facebook.com",        // Meta Pixel event config tool + tracking iframe
+    "https://web.facebook.com",        // Meta Pixel (alternate domain)
   ],
   "worker-src":      ["'self'", "blob:"],          // ElevenLabs AudioWorklet
   "object-src":      ["'none'"],
