@@ -282,12 +282,16 @@ export default function AgendaCitaModal() {
     setBookingErr('')
 
     // Meta Pixel — fire Schedule immediately when user confirms (before backend)
-    if (typeof window !== 'undefined' && typeof (window as unknown as { fbq?: (...args: unknown[]) => void }).fbq === 'function') {
-      ;(window as unknown as { fbq: (...args: unknown[]) => void }).fbq('track', 'Schedule', {
-        content_name: SEDES[form.sede!].nombre,
-        content_category: form.sede,
-      })
-    }
+    try {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const w = window as any
+      if (typeof w.fbq === 'function') {
+        w.fbq('track', 'Schedule', {
+          content_name: SEDES[form.sede!].nombre,
+          content_category: form.sede,
+        })
+      }
+    } catch { /* pixel not loaded */ }
 
     try {
       const res = await fetch(`${N8N}/dr-vazquez-reservar`, {
