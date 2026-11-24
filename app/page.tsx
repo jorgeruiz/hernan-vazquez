@@ -89,8 +89,8 @@ export default function HomePage() {
             </p>
 
             <h1 className="hero-heading heading-display text-4xl md:text-5xl xl:text-6xl font-bold text-white mb-6">
-              Especialista en Artritis, Lupus y{" "}
-              <span className="text-blue-300">Dolor Articular</span> en Monterrey
+              Reumatólogo en Monterrey — Artritis, Lupus y{" "}
+              <span className="text-blue-300">Dolor Articular</span>
             </h1>
 
             <p className="hero-subtext text-blue-100/90 text-base md:text-lg leading-relaxed mb-10 max-w-xl">

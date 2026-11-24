@@ -80,10 +80,10 @@ export default function DoctorPage() {
           />
           <div className="flex-1">
             <h1 className="text-3xl sm:text-4xl font-bold text-navy heading-display">
-              Dr. Hernán Vázquez González
+              Dr. Hernán Vázquez González — Reumatólogo en Monterrey
             </h1>
             <p className="text-primary font-semibold text-lg mt-2">
-              Reumatólogo en Monterrey
+              Certificado por el Colegio Mexicano de Reumatología
             </p>
             <p className="text-muted mt-4 text-base leading-relaxed">
               Médico reumatólogo certificado por el Colegio Mexicano de
