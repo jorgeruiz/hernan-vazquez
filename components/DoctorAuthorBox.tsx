@@ -17,7 +17,7 @@ export default function DoctorAuthorBox({ lastReviewed, isDraft = true }: Props)
       <div className="flex items-start gap-4">
         <Image
           src="/images/about-doctor.jpg"
-          alt="Dr. Hernán Vázquez González"
+          alt="Dr. Hernán Vázquez González, reumatólogo certificado en Monterrey"
           width={64}
           height={64}
           className="rounded-full w-14 h-14 sm:w-16 sm:h-16 object-cover flex-shrink-0"
