@@ -4,6 +4,7 @@ export const physicianSchema = {
   "name": "Dr. Hernán Vázquez González — Reumatólogo en Monterrey",
   "alternateName": "Hernan Vazquez Gonzalez Reumatologo",
   "description": "Médico reumatólogo certificado con 12 años de experiencia como reumatólogo y 14 como internista. Especialista en artritis, lupus, fibromialgia y enfermedades reumáticas en Monterrey.",
+  "image": "https://reumamonterrey.com/images/about-doctor.jpg",
   "url": "https://reumamonterrey.com",
   "telephone": "+52-81-8317-8342",
   "medicalSpecialty": "Rheumatology",
@@ -19,6 +20,33 @@ export const physicianSchema = {
     "addressRegion": "Nuevo León",
     "addressCountry": "MX"
   },
+  "location": [
+    {
+      "@type": "MedicalClinic",
+      "name": "Consultorio de Reumatología — Hospital Christus Muguerza Sur",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Hospital Christus Muguerza Sur, Piso 6, Consultorio 616",
+        "addressLocality": "Monterrey",
+        "addressRegion": "Nuevo León",
+        "addressCountry": "MX"
+      },
+      "telephone": "+52-81-8317-8342"
+    },
+    {
+      "@type": "MedicalClinic",
+      "name": "Consultorio de Reumatología — CARE Medical Hub",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Bolivia 103, Piso 12, Consultorio 14, Balcones de Galerías",
+        "postalCode": "64620",
+        "addressLocality": "Monterrey",
+        "addressRegion": "Nuevo León",
+        "addressCountry": "MX"
+      },
+      "telephone": "+52-81-8317-8342"
+    }
+  ],
   "areaServed": [
     { "@type": "City", "name": "Monterrey" },
     { "@type": "City", "name": "San Pedro Garza García" },
