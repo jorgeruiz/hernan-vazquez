@@ -74,6 +74,7 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${jakarta.variable}`}>
       <head>
+        <meta name="google-site-verification" content="TOautC6yJg0lfVR8eY8aN-3ZDLs18fK8OFLHiL09FM4" />
         <JsonLd data={physicianSchema} />
         <JsonLd data={personSchema} />
 
