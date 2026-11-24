@@ -320,6 +320,20 @@ export default function AgendaCitaModal() {
         }
         gtm('agendar_confirmada', ev)
         gtm(form.sede === 'CARE' ? 'cita_care' : 'cita_muguerza', ev)
+        // GA4 direct conversion event (independent of GTM trigger config)
+        try {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          const w = window as any
+          if (typeof w.gtag === 'function') {
+            w.gtag('event', 'generate_lead', {
+              event_category: 'citas',
+              event_label: SEDES[form.sede!].nombre,
+              sede_id: form.sede,
+              fecha: form.fecha,
+              hora: form.slot!.hora,
+            })
+          }
+        } catch { /* gtag not ready */ }
 
       } else if (data.ocupado || data.slotOcupado || data.error === 'ocupado') {
         // Slot already taken — go back to step 3 and reload
