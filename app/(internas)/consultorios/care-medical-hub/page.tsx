@@ -73,7 +73,7 @@ export default function CareMedicalHubPage() {
               <p className="font-medium">CARE Medical Hub</p>
               <p>Bolivia 103, Piso 12, Consultorio 14</p>
               <p>Balcones de Galerías</p>
-              <p>Monterrey, Nuevo León, C.P. 64620</p>
+              <p>Monterrey, N.L. C.P. 64620</p>
             </address>
           </div>
 

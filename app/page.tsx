@@ -488,11 +488,11 @@ export default function HomePage() {
                   <div>
                     <p className="font-semibold text-midnight text-sm">Consultorios</p>
                     <p className="text-muted text-sm mt-0.5">
-                      Hospital Christus Muguerza Sur — Piso 6, Cons. 616
+                      Muguerza Sur — Carr. Nacional 6501, Piso 6, Cons. 616
                       <br />
                       CARE Medical Hub — Bolivia 103, Piso 12, Cons. 14
                       <br />
-                      Monterrey, Nuevo León
+                      Monterrey, N.L.
                     </p>
                   </div>
                 </div>
@@ -697,9 +697,9 @@ export default function HomePage() {
                 <div>
                   <span className="text-white/40 text-xs block mb-0.5">Consultorios</span>
                   <span>
-                    Christus Muguerza Sur — Piso 6, Cons. 616
+                    Muguerza Sur — Carr. Nacional 6501, Piso 6, Cons. 616
                     <br />
-                    CARE Medical Hub — Piso 12, Cons. 14
+                    CARE Medical Hub — Bolivia 103, Piso 12, Cons. 14
                     <br />
                     Monterrey, N.L.
                   </span>

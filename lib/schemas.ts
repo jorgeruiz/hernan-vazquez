@@ -14,7 +14,8 @@ export const physicianSchema = {
   ],
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Hospital Christus Muguerza Sur, Piso 6, Consultorio 616",
+    "streetAddress": "Carr. Nacional 6501, La Estanzuela, Piso 6, Consultorio 616",
+    "postalCode": "64988",
     "addressLocality": "Monterrey",
     "addressRegion": "Nuevo León",
     "addressCountry": "MX"
@@ -142,7 +143,7 @@ export const faqPageSchema = {
       "name": "¿Dónde tiene consultorio el Dr. Hernán Vázquez González en Monterrey?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "El Dr. Hernán Vázquez González atiende en dos consultorios: Hospital Christus Muguerza Sur (Piso 6, Consultorio 616) en la zona sur de Monterrey, donde es el único reumatólogo, y CARE Medical Hub (Bolivia 103, Piso 12, Consultorio 14) en Balcones de Galerías. Para citas: Tel. 81 8317 8342 / WhatsApp: 81 2565 6698."
+        "text": "El Dr. Hernán Vázquez González atiende en dos consultorios: Hospital Christus Muguerza Sur (Carr. Nacional 6501, La Estanzuela, Piso 6, Consultorio 616, C.P. 64988) en la zona sur de Monterrey, donde es el único reumatólogo, y CARE Medical Hub (Bolivia 103, Balcones de Galerías, Piso 12, Consultorio 14, C.P. 64620). Para citas: Tel. 81 8317 8342 / WhatsApp: 81 2565 6698."
       }
     },
     {

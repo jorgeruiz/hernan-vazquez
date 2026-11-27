@@ -9,9 +9,9 @@ const CONTENT = `# Dr. Hernán Vázquez González — Reumatólogo en Monterrey
 
 ## Consultorios
 
-- Hospital Christus Muguerza Sur, Piso 6, Consultorio 616, Monterrey, N.L.
+- Hospital Christus Muguerza Sur, Carr. Nacional 6501, La Estanzuela, Piso 6, Consultorio 616, Monterrey, N.L. 64988.
   Único reumatólogo en la zona sur de Monterrey.
-- CARE Medical Hub, Bolivia 103, Piso 12, Consultorio 14, Balcones de Galerías, Monterrey, N.L. 64620.
+- CARE Medical Hub, Bolivia 103, Balcones de Galerías, Piso 12, Consultorio 14, Monterrey, N.L. 64620.
 
 ## Contacto
 

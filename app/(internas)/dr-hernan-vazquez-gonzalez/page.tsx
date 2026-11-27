@@ -44,15 +44,15 @@ const CREDENTIALS = [
 const CONSULTORIOS = [
   {
     nombre: "Hospital Christus Muguerza Sur",
-    detalle: "Piso 6, Consultorio 616",
-    ubicacion: "Monterrey, Nuevo León",
+    detalle: "Carr. Nacional 6501, La Estanzuela, Piso 6, Cons. 616",
+    ubicacion: "Monterrey, N.L. C.P. 64988",
     diferenciador: "Único reumatólogo en la zona sur de Monterrey",
     href: "/consultorios/christus-muguerza-sur",
   },
   {
     nombre: "CARE Medical Hub",
-    detalle: "Bolivia 103, Piso 12, Consultorio 14",
-    ubicacion: "Balcones de Galerías, Monterrey, N.L. 64620",
+    detalle: "Bolivia 103, Piso 12, Cons. 14, Balcones de Galerías",
+    ubicacion: "Monterrey, N.L. C.P. 64620",
     diferenciador: null,
     href: "/consultorios/care-medical-hub",
   },

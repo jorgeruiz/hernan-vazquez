@@ -79,7 +79,8 @@ export function buildDoctorPageSchema() {
         name: "Hospital Christus Muguerza Sur",
         address: {
           "@type": "PostalAddress",
-          // TODO: Dirección de calle exacta de Muguerza Sur
+          streetAddress: "Carr. Nacional 6501, La Estanzuela, Piso 6, Consultorio 616",
+          postalCode: "64988",
           addressLocality: "Monterrey",
           addressRegion: "Nuevo León",
           addressCountry: "MX",

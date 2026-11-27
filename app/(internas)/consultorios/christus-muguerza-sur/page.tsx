@@ -9,7 +9,7 @@ import { buildClinicSchema } from "@/lib/internal-schemas"
 export const metadata: Metadata = {
   title: "Reumatólogo en Christus Muguerza Sur | Dr. Hernán Vázquez González",
   description:
-    "Consulta de reumatología en Hospital Christus Muguerza Sur, Piso 6, Consultorio 616, Monterrey. Único reumatólogo en la zona sur. Tel. 81 8317 8342.",
+    "Consulta de reumatología en Hospital Christus Muguerza Sur, Carr. Nacional 6501, La Estanzuela, Piso 6, Consultorio 616, Monterrey. Único reumatólogo en la zona sur. Tel. 81 8317 8342.",
   alternates: {
     canonical: "/consultorios/christus-muguerza-sur",
   },
@@ -25,7 +25,8 @@ const clinicSchema = buildClinicSchema({
   name: "Consultorio de Reumatología — Hospital Christus Muguerza Sur",
   description:
     "Consulta de reumatología con el Dr. Hernán Vázquez González. Único reumatólogo en la zona sur de Monterrey. Hospital Christus Muguerza Sur, Piso 6, Consultorio 616.",
-  // TODO: streetAddress exacta de Muguerza Sur
+  streetAddress: "Carr. Nacional 6501, La Estanzuela, Piso 6, Consultorio 616",
+  postalCode: "64988",
   locality: "Monterrey",
   region: "Nuevo León",
   telephone: "+52-81-8317-8342",
@@ -75,9 +76,9 @@ export default function MuguerzaSurPage() {
             <h2 className="font-bold text-navy text-lg mb-3">Ubicación</h2>
             <address className="not-italic text-sm text-midnight/80 space-y-1">
               <p className="font-medium">Hospital Christus Muguerza Sur</p>
-              {/* TODO: Dirección de calle exacta */}
+              <p>Carr. Nacional 6501, La Estanzuela</p>
               <p>Piso 6, Consultorio 616</p>
-              <p>Monterrey, Nuevo León</p>
+              <p>Monterrey, N.L. C.P. 64988</p>
             </address>
           </div>
 

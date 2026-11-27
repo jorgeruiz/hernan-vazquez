@@ -83,14 +83,14 @@ export default function InternalFooter() {
             <div className="text-sm space-y-4">
               <div>
                 <p className="text-white/90 font-medium">Christus Muguerza Sur</p>
-                {/* TODO: Dirección de calle exacta */}
-                <p>Piso 6, Consultorio 616</p>
-                <p>Monterrey, N.L.</p>
+                <p>Carr. Nacional 6501, La Estanzuela</p>
+                <p>Piso 6, Cons. 616</p>
+                <p>Monterrey, N.L. 64988</p>
               </div>
               <div>
                 <p className="text-white/90 font-medium">CARE Medical Hub</p>
-                <p>Bolivia 103, Piso 12, Cons. 14</p>
-                <p>Balcones de Galerías</p>
+                <p>Bolivia 103, Balcones de Galerías</p>
+                <p>Piso 12, Cons. 14</p>
                 <p>Monterrey, N.L. 64620</p>
               </div>
             </div>
